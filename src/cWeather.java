@@ -8,6 +8,7 @@
  *
  * @author SUN
  */
+import Client.Client;
 public class cWeather extends javax.swing.JFrame {
 
     /**
@@ -210,7 +211,10 @@ public class cWeather extends javax.swing.JFrame {
 
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
         if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            System.out.println( ((javax.swing.JTextField) evt.getSource()).getText());
+            
+            String location = ((javax.swing.JTextField) evt.getSource()).getText();
+            Client cli = new Client();
+            System.out.println(cli.getWeather(location));
       // Enter was pressed. Your code goes here.
         }
         // TODO add your handling code here:
