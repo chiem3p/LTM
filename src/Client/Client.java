@@ -12,7 +12,7 @@ import org.json.simple.parser.JSONParser;
 
 public class Client {
 
-    public byte[] inData = new byte[1024];
+    public byte[] inData = new byte[102400];
     public byte[] outData = new byte[1024];
     public String host;
     public int port;
@@ -20,6 +20,10 @@ public class Client {
     public Client(String host, int port) {
         this.host = host;
         this.port = port;
+    }
+    public Client() {
+        this.host = "localhost";
+        this.port = 8000;
     }
 
     public JSONObject getWeather(String location) {
@@ -33,18 +37,16 @@ public class Client {
             InetAddress IP = InetAddress.getByName(this.host);
             this.outData = data.getBytes();
             //gửi dữ liệu tới server udp
-            DatagramPacket sendPkt = new DatagramPacket(outData, outData.length, IP, this.port);
+            DatagramPacket sendPkt = new DatagramPacket(this.outData, this.outData.length, IP, this.port);
 
             socket.send(sendPkt);
             socket.setSoTimeout(10000);
             //chờ nhận dữ liệu từ udp server gửi về
             DatagramPacket recievePkt = new DatagramPacket(this.inData, this.inData.length);
-
-            System.out.println("ready receive message from server)");
-
             socket.receive(recievePkt);
+            String strReceived =  new String(recievePkt.getData(),0,recievePkt.getLength());
             JSONParser parser = new JSONParser();
-            JSONObject result = (JSONObject) parser.parse(new String(recievePkt.getData()));
+            JSONObject result = (JSONObject) parser.parse(strReceived);
             return result;
         } catch (Exception e) {
             JSONObject result = new JSONObject();
