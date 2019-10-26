@@ -88,6 +88,11 @@ public class cWeather extends javax.swing.JFrame {
                 inPActionPerformed(evt);
             }
         });
+        inP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inPKeyPressed(evt);
+            }
+        });
         getContentPane().add(inP);
         inP.setBounds(630, 200, 750, 70);
 
@@ -147,6 +152,14 @@ public class cWeather extends javax.swing.JFrame {
     private void inPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inPActionPerformed
+
+    private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
+        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            System.out.println( ((javax.swing.JTextField) evt.getSource()).getText());
+      // Enter was pressed. Your code goes here.
+   }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inPKeyPressed
 
     /**
      * @param args the command line arguments
