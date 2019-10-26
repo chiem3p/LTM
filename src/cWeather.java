@@ -32,15 +32,23 @@ public class cWeather extends javax.swing.JFrame {
         imgBack = new javax.swing.JLabel();
         txtINP = new javax.swing.JLabel();
         inP = new javax.swing.JTextField();
-        day = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        day1 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        day2 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        txtht = new javax.swing.JLabel();
         txtday2 = new javax.swing.JLabel();
         txtday1 = new javax.swing.JLabel();
         txtday = new javax.swing.JLabel();
+        borderday1 = new javax.swing.JLabel();
+        borderInP = new javax.swing.JLabel();
+        borderday2 = new javax.swing.JLabel();
+        borderday3 = new javax.swing.JLabel();
+        day1 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        borderday5 = new javax.swing.JLabel();
+        day2 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        day = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        day3 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -83,6 +91,7 @@ public class cWeather extends javax.swing.JFrame {
 
         inP.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         inP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inP.setBorder(null);
         inP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inPActionPerformed(evt);
@@ -94,15 +103,55 @@ public class cWeather extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inP);
-        inP.setBounds(630, 200, 750, 70);
+        inP.setBounds(637, 200, 740, 67);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
-        jTextArea1.setRows(5);
-        day.setViewportView(jTextArea1);
+        txtht.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtht.setForeground(new java.awt.Color(255, 255, 255));
+        txtht.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtht.setText("Hiện tại");
+        getContentPane().add(txtht);
+        txtht.setBounds(120, 370, 220, 90);
 
-        getContentPane().add(day);
-        day.setBounds(110, 450, 520, 510);
+        txtday2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtday2.setForeground(new java.awt.Color(255, 255, 255));
+        txtday2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtday2.setText("Ngày kia");
+        getContentPane().add(txtday2);
+        txtday2.setBounds(1590, 370, 200, 90);
+
+        txtday1.setBackground(new java.awt.Color(255, 255, 255));
+        txtday1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtday1.setForeground(new java.awt.Color(255, 255, 255));
+        txtday1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtday1.setText("Ngày mai");
+        getContentPane().add(txtday1);
+        txtday1.setBounds(1100, 370, 200, 80);
+
+        txtday.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtday.setForeground(new java.awt.Color(255, 255, 255));
+        txtday.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtday.setText("Hôm nay");
+        getContentPane().add(txtday);
+        txtday.setBounds(590, 370, 250, 90);
+
+        borderday1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        borderday1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon6.png"))); // NOI18N
+        getContentPane().add(borderday1);
+        borderday1.setBounds(500, 370, 430, 90);
+
+        borderInP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/border.png"))); // NOI18N
+        getContentPane().add(borderInP);
+        borderInP.setBounds(630, 194, 780, 80);
+
+        borderday2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        borderday2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon3.png"))); // NOI18N
+        getContentPane().add(borderday2);
+        borderday2.setBounds(10, 370, 440, 90);
+
+        borderday3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        borderday3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon5.png"))); // NOI18N
+        getContentPane().add(borderday3);
+        borderday3.setBounds(1480, 370, 420, 90);
 
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
@@ -110,7 +159,12 @@ public class cWeather extends javax.swing.JFrame {
         day1.setViewportView(jTextArea2);
 
         getContentPane().add(day1);
-        day1.setBounds(690, 450, 530, 510);
+        day1.setBounds(500, 450, 420, 520);
+
+        borderday5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        borderday5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon4.png"))); // NOI18N
+        getContentPane().add(borderday5);
+        borderday5.setBounds(990, 370, 420, 90);
 
         jTextArea3.setColumns(20);
         jTextArea3.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
@@ -118,22 +172,23 @@ public class cWeather extends javax.swing.JFrame {
         day2.setViewportView(jTextArea3);
 
         getContentPane().add(day2);
-        day2.setBounds(1280, 450, 530, 510);
+        day2.setBounds(990, 450, 420, 520);
 
-        txtday2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        txtday2.setText("Ngày kia");
-        getContentPane().add(txtday2);
-        txtday2.setBounds(1470, 380, 200, 60);
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        jTextArea1.setRows(5);
+        day.setViewportView(jTextArea1);
 
-        txtday1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        txtday1.setText("Ngày mai");
-        getContentPane().add(txtday1);
-        txtday1.setBounds(870, 380, 200, 60);
+        getContentPane().add(day);
+        day.setBounds(20, 450, 420, 520);
 
-        txtday.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        txtday.setText("Hôm nay");
-        getContentPane().add(txtday);
-        txtday.setBounds(280, 380, 200, 60);
+        jTextArea4.setColumns(20);
+        jTextArea4.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        jTextArea4.setRows(5);
+        day3.setViewportView(jTextArea4);
+
+        getContentPane().add(day3);
+        day3.setBounds(1480, 450, 420, 520);
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
@@ -157,7 +212,7 @@ public class cWeather extends javax.swing.JFrame {
         if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             System.out.println( ((javax.swing.JTextField) evt.getSource()).getText());
       // Enter was pressed. Your code goes here.
-   }
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_inPKeyPressed
 
@@ -199,19 +254,27 @@ public class cWeather extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BG;
     private javax.swing.JButton back;
+    private javax.swing.JLabel borderInP;
+    private javax.swing.JLabel borderday1;
+    private javax.swing.JLabel borderday2;
+    private javax.swing.JLabel borderday3;
+    private javax.swing.JLabel borderday5;
     private javax.swing.JScrollPane day;
     private javax.swing.JScrollPane day1;
     private javax.swing.JScrollPane day2;
+    private javax.swing.JScrollPane day3;
     private javax.swing.JLabel img;
     private javax.swing.JLabel imgBack;
     private javax.swing.JTextField inP;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JLabel txt;
     private javax.swing.JLabel txtINP;
     private javax.swing.JLabel txtday;
     private javax.swing.JLabel txtday1;
     private javax.swing.JLabel txtday2;
+    private javax.swing.JLabel txtht;
     // End of variables declaration//GEN-END:variables
 }

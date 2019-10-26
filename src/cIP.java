@@ -32,6 +32,7 @@ public class cIP extends javax.swing.JFrame {
         imgBack = new javax.swing.JLabel();
         txtINP = new javax.swing.JLabel();
         inP = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -74,13 +75,23 @@ public class cIP extends javax.swing.JFrame {
 
         inP.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         inP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inP.setBorder(null);
         inP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inPActionPerformed(evt);
             }
         });
+        inP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inPKeyPressed(evt);
+            }
+        });
         getContentPane().add(inP);
-        inP.setBounds(630, 200, 750, 70);
+        inP.setBounds(637, 200, 740, 67);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/border.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(630, 194, 780, 80);
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
@@ -99,6 +110,14 @@ public class cIP extends javax.swing.JFrame {
     private void inPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inPActionPerformed
+
+    private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
+        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            System.out.println( ((javax.swing.JTextField) evt.getSource()).getText());
+            // Enter was pressed. Your code goes here.
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inPKeyPressed
 
     /**
      * @param args the command line arguments
@@ -142,6 +161,7 @@ public class cIP extends javax.swing.JFrame {
     private javax.swing.JTextField inP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel txtINP;
     // End of variables declaration//GEN-END:variables
 }
