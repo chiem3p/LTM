@@ -37,7 +37,7 @@ public class UI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menu");
-        setPreferredSize(new java.awt.Dimension(1000, 900));
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -55,7 +55,7 @@ public class UI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cWeather);
-        cWeather.setBounds(290, 210, 360, 81);
+        cWeather.setBounds(580, 240, 780, 130);
 
         cIP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         cIP.setForeground(new java.awt.Color(255, 255, 255));
@@ -68,7 +68,7 @@ public class UI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cIP);
-        cIP.setBounds(290, 390, 380, 90);
+        cIP.setBounds(570, 500, 770, 140);
 
         cPort.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         cPort.setForeground(new java.awt.Color(255, 255, 255));
@@ -81,27 +81,25 @@ public class UI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cPort);
-        cPort.setBounds(290, 600, 366, 88);
+        cPort.setBounds(580, 800, 780, 130);
 
-        Khung1.setIcon(new javax.swing.ImageIcon("C:\\Users\\SUN\\Documents\\NetBeansProjects\\UIUI\\image\\3.png")); // NOI18N
+        Khung1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3.png"))); // NOI18N
         getContentPane().add(Khung1);
-        Khung1.setBounds(270, 200, 390, 100);
+        Khung1.setBounds(560, 230, 810, 150);
 
-        khung2.setIcon(new javax.swing.ImageIcon("C:\\Users\\SUN\\Documents\\NetBeansProjects\\UIUI\\image\\4.png")); // NOI18N
+        khung2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4.png"))); // NOI18N
         getContentPane().add(khung2);
-        khung2.setBounds(280, 380, 400, 110);
+        khung2.setBounds(570, 490, 840, 160);
 
-        khung3.setIcon(new javax.swing.ImageIcon("C:\\Users\\SUN\\Documents\\NetBeansProjects\\UIUI\\image\\5.png")); // NOI18N
+        khung3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/5.png"))); // NOI18N
         getContentPane().add(khung3);
-        khung3.setBounds(280, 600, 400, 90);
-
-        Tittle.setIcon(new javax.swing.ImageIcon("C:\\Users\\SUN\\Documents\\NetBeansProjects\\UIUI\\image\\title.png")); // NOI18N
+        khung3.setBounds(570, 790, 820, 140);
         getContentPane().add(Tittle);
-        Tittle.setBounds(-130, 0, 1180, 120);
+        Tittle.setBounds(260, 30, 1600, 170);
 
-        BG.setIcon(new javax.swing.ImageIcon("C:\\Users\\SUN\\Documents\\NetBeansProjects\\UIUI\\image\\BG.png")); // NOI18N
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
-        BG.setBounds(0, 0, 1000, 900);
+        BG.setBounds(0, 0, 1920, 1080);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
