@@ -30,11 +30,13 @@ public class cIP extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
         imgBack = new javax.swing.JLabel();
+        txtINP = new javax.swing.JLabel();
+        inP = new javax.swing.JTextField();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Xác định vị trí");
-        setPreferredSize(new java.awt.Dimension(1000, 900));
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -42,13 +44,13 @@ public class cIP extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Xác định vị trí IP");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(270, 50, 430, 60);
+        jLabel2.setBounds(760, 40, 430, 60);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\SUN\\Documents\\NetBeansProjects\\UIUI\\image\\1.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-150, 0, 1090, 210);
+        jLabel1.setBounds(340, -10, 1090, 210);
 
-        back.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        back.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         back.setText("Back");
         back.setContentAreaFilled(false);
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -57,15 +59,32 @@ public class cIP extends javax.swing.JFrame {
             }
         });
         getContentPane().add(back);
-        back.setBounds(100, 830, 110, 25);
+        back.setBounds(90, 980, 160, 60);
 
-        imgBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\SUN\\Documents\\NetBeansProjects\\UIUI\\image\\back.png")); // NOI18N
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
         getContentPane().add(imgBack);
-        imgBack.setBounds(80, 820, 170, 40);
+        imgBack.setBounds(70, 980, 230, 60);
 
-        BG.setIcon(new javax.swing.ImageIcon("C:\\Users\\SUN\\Documents\\NetBeansProjects\\UIUI\\image\\BG.png")); // NOI18N
+        txtINP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtINP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtINP.setText("Nhập IP: ");
+        txtINP.setToolTipText("");
+        getContentPane().add(txtINP);
+        txtINP.setBounds(400, 200, 230, 70);
+
+        inP.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        inP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inPActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inP);
+        inP.setBounds(630, 200, 750, 70);
+
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
-        BG.setBounds(0, 0, 1000, 920);
+        BG.setBounds(0, 0, 1920, 1080);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -76,6 +95,10 @@ public class cIP extends javax.swing.JFrame {
         dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_backActionPerformed
+
+    private void inPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,7 +139,9 @@ public class cIP extends javax.swing.JFrame {
     private javax.swing.JLabel BG;
     private javax.swing.JButton back;
     private javax.swing.JLabel imgBack;
+    private javax.swing.JTextField inP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel txtINP;
     // End of variables declaration//GEN-END:variables
 }

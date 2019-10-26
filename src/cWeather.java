@@ -30,11 +30,22 @@ public class cWeather extends javax.swing.JFrame {
         img = new javax.swing.JLabel();
         back = new javax.swing.JButton();
         imgBack = new javax.swing.JLabel();
+        txtINP = new javax.swing.JLabel();
+        inP = new javax.swing.JTextField();
+        day = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        day1 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        day2 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        txtday2 = new javax.swing.JLabel();
+        txtday1 = new javax.swing.JLabel();
+        txtday = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tra cứu thời tiết");
-        setPreferredSize(new java.awt.Dimension(1000, 900));
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -42,13 +53,13 @@ public class cWeather extends javax.swing.JFrame {
         txt.setForeground(new java.awt.Color(255, 255, 255));
         txt.setText("Tra cứu thời tiết");
         getContentPane().add(txt);
-        txt.setBounds(280, 50, 430, 60);
+        txt.setBounds(790, 50, 480, 60);
 
-        img.setIcon(new javax.swing.ImageIcon("C:\\Users\\SUN\\Documents\\NetBeansProjects\\UIUI\\image\\1c.png")); // NOI18N
+        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1c.png"))); // NOI18N
         getContentPane().add(img);
-        img.setBounds(-150, 0, 1140, 200);
+        img.setBounds(360, 0, 1190, 200);
 
-        back.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        back.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         back.setText("Back");
         back.setContentAreaFilled(false);
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -57,15 +68,71 @@ public class cWeather extends javax.swing.JFrame {
             }
         });
         getContentPane().add(back);
-        back.setBounds(90, 830, 110, 25);
+        back.setBounds(90, 980, 160, 60);
 
-        imgBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\SUN\\Documents\\NetBeansProjects\\UIUI\\image\\back.png")); // NOI18N
+        imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
         getContentPane().add(imgBack);
-        imgBack.setBounds(70, 820, 170, 40);
+        imgBack.setBounds(70, 980, 230, 60);
 
-        BG.setIcon(new javax.swing.ImageIcon("C:\\Users\\SUN\\Documents\\NetBeansProjects\\UIUI\\image\\BG.png")); // NOI18N
+        txtINP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtINP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtINP.setText("Nhập tỉnh/Thành phố:");
+        txtINP.setToolTipText("");
+        getContentPane().add(txtINP);
+        txtINP.setBounds(200, 200, 430, 70);
+
+        inP.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        inP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inPActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inP);
+        inP.setBounds(630, 200, 750, 70);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        jTextArea1.setRows(5);
+        day.setViewportView(jTextArea1);
+
+        getContentPane().add(day);
+        day.setBounds(110, 450, 520, 510);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        jTextArea2.setRows(5);
+        day1.setViewportView(jTextArea2);
+
+        getContentPane().add(day1);
+        day1.setBounds(690, 450, 530, 510);
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        jTextArea3.setRows(5);
+        day2.setViewportView(jTextArea3);
+
+        getContentPane().add(day2);
+        day2.setBounds(1280, 450, 530, 510);
+
+        txtday2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtday2.setText("Ngày kia");
+        getContentPane().add(txtday2);
+        txtday2.setBounds(1470, 380, 200, 60);
+
+        txtday1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtday1.setText("Ngày mai");
+        getContentPane().add(txtday1);
+        txtday1.setBounds(870, 380, 200, 60);
+
+        txtday.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtday.setText("Hôm nay");
+        getContentPane().add(txtday);
+        txtday.setBounds(280, 380, 200, 60);
+
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
-        BG.setBounds(0, 0, 990, 900);
+        BG.setBounds(0, 0, 2140, 1080);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -76,6 +143,10 @@ public class cWeather extends javax.swing.JFrame {
         dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_backActionPerformed
+
+    private void inPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,8 +186,19 @@ public class cWeather extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BG;
     private javax.swing.JButton back;
+    private javax.swing.JScrollPane day;
+    private javax.swing.JScrollPane day1;
+    private javax.swing.JScrollPane day2;
     private javax.swing.JLabel img;
     private javax.swing.JLabel imgBack;
+    private javax.swing.JTextField inP;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JLabel txt;
+    private javax.swing.JLabel txtINP;
+    private javax.swing.JLabel txtday;
+    private javax.swing.JLabel txtday1;
+    private javax.swing.JLabel txtday2;
     // End of variables declaration//GEN-END:variables
 }
