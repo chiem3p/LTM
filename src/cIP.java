@@ -1,3 +1,6 @@
+
+import Client.Client;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -115,8 +118,10 @@ public class cIP extends javax.swing.JFrame {
 
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
         if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            System.out.println( ((javax.swing.JTextField) evt.getSource()).getText());
-            // Enter was pressed. Your code goes here.
+            String ip = ((javax.swing.JTextField) evt.getSource()).getText();
+            Client cli = new Client();
+            //JSONObject a = cli.getWeather(location)
+            System.out.println(cli.getIPLocation(ip));
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_inPKeyPressed

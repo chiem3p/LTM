@@ -14,6 +14,7 @@ public class Client {
 
     public byte[] inData = new byte[102400];
     public byte[] outData = new byte[1024];
+    public int timeout ;
     public String host;
     public int port;
 
@@ -24,13 +25,24 @@ public class Client {
     public Client() {
         this.host = "localhost";
         this.port = 8000;
+        this.timeout = 10000;
     }
 
+    public JSONObject getPortOpen(String ip) {
+        String data = "port:" + ip;
+        return this.sendData(data);
+    }
+    
     public JSONObject getWeather(String location) {
         String data = "weather:" + location;
         return this.sendData(data);
     }
-
+    
+    public JSONObject getIPLocation(String location) {
+        String data = "ip:" + location;
+        return this.sendData(data);
+    }
+    
     public JSONObject sendData(String data) {
         try {
             DatagramSocket socket = new DatagramSocket();
@@ -40,7 +52,7 @@ public class Client {
             DatagramPacket sendPkt = new DatagramPacket(this.outData, this.outData.length, IP, this.port);
 
             socket.send(sendPkt);
-            socket.setSoTimeout(10000);
+            socket.setSoTimeout(this.timeout);
             //chờ nhận dữ liệu từ udp server gửi về
             DatagramPacket recievePkt = new DatagramPacket(this.inData, this.inData.length);
             socket.receive(recievePkt);
@@ -49,6 +61,7 @@ public class Client {
             JSONObject result = (JSONObject) parser.parse(strReceived);
             return result;
         } catch (Exception e) {
+            System.out.println(e);
             JSONObject result = new JSONObject();
             result.put("success",false);
             return result;
