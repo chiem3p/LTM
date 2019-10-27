@@ -8,7 +8,12 @@
  *
  * @author SUN
  */
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 import Client.Client;
+import com.sun.jmx.snmp.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
 public class cWeather extends javax.swing.JFrame {
 
     /**
@@ -50,6 +55,7 @@ public class cWeather extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         day3 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -191,6 +197,12 @@ public class cWeather extends javax.swing.JFrame {
         getContentPane().add(day3);
         day3.setBounds(1480, 450, 420, 520);
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(830, 280, 380, 60);
+
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
         BG.setBounds(0, 0, 2140, 1080);
@@ -214,8 +226,29 @@ public class cWeather extends javax.swing.JFrame {
             
             String location = ((javax.swing.JTextField) evt.getSource()).getText();
             Client cli = new Client();
-            System.out.println(cli.getWeather(location));
-      // Enter was pressed. Your code goes here.
+            JSONObject result = cli.getWeather(location);
+            //System.out.println(result);
+            JSONObject city = (JSONObject) result.get("city");
+            System.out.println(city.get("name"));
+            //jTextArea1.append(city.get("name").toString());
+            Calendar cal = Calendar.getInstance();
+            
+            Date date = new Date();
+            long startDay = (date.getTime()/1000) - (date.getHours()*3600) - (date.getMinutes()*60);
+            long endDay =  startDay + 86400;
+            
+           System.out.println(startDay);
+            //jLabel1.setText(cal.getTime().toString());
+            JSONArray list = (JSONArray) result.get("list");
+            for(Object tmp:list){
+                JSONObject ob = (JSONObject) tmp;
+                long dt = (long)ob.get("dt");
+                if(dt > startDay && dt < endDay){
+                    System.out.println(ob.get("dt_txt"));
+                }
+            }
+            
+            // Enter was pressed. Your code goes here.
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_inPKeyPressed
@@ -270,6 +303,7 @@ public class cWeather extends javax.swing.JFrame {
     private javax.swing.JLabel img;
     private javax.swing.JLabel imgBack;
     private javax.swing.JTextField inP;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
