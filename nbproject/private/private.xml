@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/SUN/Documents/NetBeansProjects/UIUI/src/cIP.java</file>
-            <file>file:/C:/Users/SUN/Documents/NetBeansProjects/UIUI/src/cWeather.java</file>
-            <file>file:/C:/Users/SUN/Documents/NetBeansProjects/UIUI/src/cPort.java</file>
-            <file>file:/C:/Users/SUN/Documents/NetBeansProjects/UIUI/src/UI.java</file>
+            <file>file:/C:/Users/SUN/Documents/NetBeansProjects/LTM/src/Client/Client.java</file>
+            <file>file:/C:/Users/SUN/Documents/NetBeansProjects/LTM/src/UI.java</file>
+            <file>file:/C:/Users/SUN/Documents/NetBeansProjects/LTM/src/Server/Server.java</file>
+            <file>file:/C:/Users/SUN/Documents/NetBeansProjects/LTM/src/cPort.java</file>
+            <file>file:/C:/Users/SUN/Documents/NetBeansProjects/LTM/src/cIP.java</file>
+            <file>file:/C:/Users/SUN/Documents/NetBeansProjects/LTM/src/cWeather.java</file>
         </group>
     </open-files>
 </project-private>

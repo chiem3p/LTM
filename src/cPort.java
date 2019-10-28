@@ -38,6 +38,10 @@ public class cPort extends javax.swing.JFrame {
         txtINP = new javax.swing.JLabel();
         inP = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        inP1 = new javax.swing.JTextField();
+        inP2 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -98,6 +102,46 @@ public class cPort extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(630, 194, 780, 80);
 
+        inP1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        inP1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inP1ActionPerformed(evt);
+            }
+        });
+        inP1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inP1KeyPressed(evt);
+            }
+        });
+        getContentPane().add(inP1);
+        inP1.setBounds(730, 280, 200, 70);
+
+        inP2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        inP2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inP2ActionPerformed(evt);
+            }
+        });
+        inP2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inP2KeyPressed(evt);
+            }
+        });
+        getContentPane().add(inP2);
+        inP2.setBounds(1050, 280, 200, 70);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setText("-->");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(950, 300, 90, 40);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Khoảng: ");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(370, 280, 300, 70);
+
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
         BG.setBounds(0, 0, 1920, 1080);
@@ -125,6 +169,35 @@ public class cPort extends javax.swing.JFrame {
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_inPKeyPressed
+
+    private void inP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inP1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inP1ActionPerformed
+
+    private void inP1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inP1KeyPressed
+            if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            String start = ((javax.swing.JTextField) evt.getSource()).getText();
+            Client cli = new Client();
+            //JSONObject a = cli.getWeather(location)
+            System.out.println(cli.getIPLocation(start));
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inP1KeyPressed
+
+    private void inP2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inP2KeyPressed
+            if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            String end = ((javax.swing.JTextField) evt.getSource()).getText();
+            Client cli = new Client();
+            //JSONObject a = cli.getWeather(location)
+            System.out.println(cli.getIPLocation(end));
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inP2KeyPressed
+
+    private void inP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inP2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inP2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,7 +240,11 @@ public class cPort extends javax.swing.JFrame {
     private javax.swing.JLabel imgBack;
     private javax.swing.JLabel imgTitle;
     private javax.swing.JTextField inP;
+    private javax.swing.JTextField inP1;
+    private javax.swing.JTextField inP2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel title;
     private javax.swing.JLabel txtINP;
     // End of variables declaration//GEN-END:variables
