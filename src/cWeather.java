@@ -12,8 +12,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import Client.Client;
 import com.sun.jmx.snmp.Timestamp;
+import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Optional;
+import javax.swing.ImageIcon;
 public class cWeather extends javax.swing.JFrame {
 
     /**
@@ -46,6 +49,7 @@ public class cWeather extends javax.swing.JFrame {
         borderInP = new javax.swing.JLabel();
         borderday2 = new javax.swing.JLabel();
         borderday3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         day1 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         borderday5 = new javax.swing.JLabel();
@@ -159,6 +163,8 @@ public class cWeather extends javax.swing.JFrame {
         borderday3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon5.png"))); // NOI18N
         getContentPane().add(borderday3);
         borderday3.setBounds(1480, 370, 420, 90);
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(540, 460, 500, 530);
 
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
@@ -224,6 +230,7 @@ public class cWeather extends javax.swing.JFrame {
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
         if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             String location = ((javax.swing.JTextField) evt.getSource()).getText();
+            System.out.println(location);
             Client cli = new Client();
             JSONObject result = cli.getWeather(location);
             //System.out.println(result);
@@ -239,12 +246,68 @@ public class cWeather extends javax.swing.JFrame {
             //jLabel1.setText(cal.getTime().toString());
             JSONArray list = (JSONArray) result.get("list");
             //System.out.println(list.get("weather"));
+            System.out.println(((JSONObject)list.get(0)).get("weather"));
+            
+            JSONArray weather =  (JSONArray) ((JSONObject)list.get(0)).get("weather");
+            
+            //JSONObject weather = (JSONObject) ((JSONObject)list.get(0)).get("weather");
+//          for(Object tmp1:weather){
+//                JSONObject ob1 = (JSONObject) tmp1;
+//                System.out.println(ob1.get("main"));
+//                String main = (String) ob1.get("main");
+//                //System.out.println(main);
+//                if(main.equals("Clouds")){
+//                    System.out.println("Trời có mây"); 
+//                }
+//                if(main.equals("Rain")){
+//                System.out.println("Trời mưa"); 
+//                }
+//                if(main.equals("Clear")){
+//                System.out.println("Trời nắng"); 
+//                }
+//                System.out.println("0");
+//                if (main.equals("Rain"))
+//                {
+//                    String pathName = "C:\\Users\\SUN\\Documents\\NetBeansProjects\\LTM\\src\\image\\rain1.gif"; 
+//                    ImageIcon I1 = new ImageIcon(pathName);
+//                    File myFile = new File(pathName);
+//                    System.out.println(myFile.exists());  // check to see if file exists.  can delete later
+//                    jLabel2.setIcon(I1);
+//                }
+//                if (main.equals("Clouds"))
+//                {
+//                    String pathName = "C:\\Users\\SUN\\Documents\\NetBeansProjects\\LTM\\src\\image\\clound.jpg"; 
+//                    ImageIcon I1 = new ImageIcon(pathName);
+//                    File myFile = new File(pathName);
+//                    System.out.println(myFile.exists());  // check to see if file exists.  can delete later
+//                    jLabel2.setIcon(I1);
+//                }
+//                
+//            }
+
+
+//                String result1;
+//                result1 = Optional.ofNullable(icon).filter(sStr -> sStr.length() != 0).map(sStr -> sStr.substring(0, sStr.length() - 1)).orElse(icon);
+//                System.out.println(result1);
+//                int icon1 = Integer.parseInt(result1);
+//                if(icon1<10){
+//                    System.out.println("Kha lam thang nhoc");
+//                }
+                
+            
+            
             for(Object tmp:list){
                 JSONObject ob = (JSONObject) tmp;
                 long dt = (long)ob.get("dt") - (long) city.get("timezone");
-                
                 if(dt > startDay && dt < endDay){
+                    for(Object tmp1:weather){
+                    JSONObject ob1 = (JSONObject) tmp1;
+                    System.out.println(ob1.get("main"));
+                    String main = (String) ob1.get("main");
+                    //System.out.println(main);
+                    }
                     System.out.println(ob.get("dt_txt"));
+
                 }
             }
         }
@@ -302,6 +365,7 @@ public class cWeather extends javax.swing.JFrame {
     private javax.swing.JLabel imgBack;
     private javax.swing.JTextField inP;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
