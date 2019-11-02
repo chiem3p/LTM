@@ -18,6 +18,8 @@ import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Server {
 
@@ -74,35 +76,47 @@ public class Server {
         if (Integer.parseInt(x) > Integer.parseInt(y)) {
             return "{\"success\":false,\"error_message\":\"start port is greater than end port\"}";
         }
+        String output = "";
+        System.out.println("Start process nmap");
         try {
-            URL url = new URL("https://api.ip2location.com/v2/?key=KNGRKJLPGS&package=WS12&ip=" + IP);
-            String content = "";
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
-                for (String line; (line = reader.readLine()) != null;) {
-                    content += line;
-                }
+            Process process = Runtime.getRuntime().exec("\"C:\\Program Files (x86)\\Nmap\\nmap.exe\" -sT -sU -p " + x + "-" + y + " " + IP);
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                output += "\n" + line;
             }
-            return content;
-        } catch (Exception ex) {
-            System.out.println(ex);
-            return "{\"success\":false}";
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        for (int port = Integer.parseInt(x); port <= Integer.parseInt(y); port++) {
-            try {
-                Socket socket = new Socket();
-                socket.connect(new InetSocketAddress(IP, port), 500);
-                socket.close();
-                data += port + ",";
-            } catch (Exception ex) {
-            }
+        System.out.println("Process done");
+        final Pattern pattern = Pattern.compile("(\\d+\\/.+?p) open");
+        Matcher matcher = pattern.matcher(output);
+        while (matcher.find()) {
+            data+= matcher.group(1).replace("/"," ")+',';
         }
+//        for (int port = Integer.parseInt(x); port <= Integer.parseInt(y); port++) {
+//            try {
+//                Socket socket = new Socket();
+//                socket.connect(new InetSocketAddress(IP, port), 500);
+//                socket.close();
+//                data += port + ",";
+//            } catch (Exception ex) {
+//            }
+//        }
         if (data.length() > 0) {
             data = data.substring(0, data.length() - 1);
             String[] portList = data.split(",");
+            String portStr = "";
+            for(String i:portList){
+                portStr +="\""+i+"\",";
+            }
             String result = "{"
                     + "\"success\":true,"
-                    + "\"data\":" + Arrays.toString(portList)
+                    + "\"data\":" + "[" +portStr + "]"
                     + "}";
+            System.out.println(result);
             return result;
         }
         return "{\"success\":true,\"data\":[]}";

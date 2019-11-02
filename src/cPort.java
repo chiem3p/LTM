@@ -165,7 +165,7 @@ public class cPort extends javax.swing.JFrame {
             String IP = ((javax.swing.JTextField) evt.getSource()).getText();
             String start = inP1.getText();
             String end = inP2.getText();
-            Client cli = new Client();
+            Client cli = new Client("localhost",8000,100000);
             System.out.println(cli.getPortOpen(IP + ":" + start + ":" + end));
         }
         // TODO add your handling code here:
@@ -180,7 +180,7 @@ public class cPort extends javax.swing.JFrame {
             String start = ((javax.swing.JTextField) evt.getSource()).getText();
             String IP = inP.getText();
             String end = inP2.getText();
-            Client cli = new Client();
+            Client cli = new Client("localhost",8000,100000);
             System.out.println(cli.getPortOpen(IP + ":" + start + ":" + end));
         }
 
@@ -192,7 +192,7 @@ public class cPort extends javax.swing.JFrame {
             String end = ((javax.swing.JTextField) evt.getSource()).getText();
             String IP = inP.getText();
             String start = inP1.getText();
-            Client cli = new Client();
+            Client cli = new Client("localhost",8000,100000);
             System.out.println(cli.getPortOpen(IP + ":" + start + ":" + end));
         }
         // TODO add your handling code here:

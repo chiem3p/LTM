@@ -18,9 +18,10 @@ public class Client {
     public String host;
     public int port;
 
-    public Client(String host, int port) {
+    public Client(String host, int port,int timeout) {
         this.host = host;
         this.port = port;
+        this.timeout = timeout;
     }
 
     public Client() {
