@@ -105,15 +105,15 @@ public class UI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cWeatherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cWeatherActionPerformed
-        cWeather w=new cWeather();
+        cWeather w = new cWeather();
         w.setVisible(true);
         dispose();
 
-    // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_cWeatherActionPerformed
 
     private void cIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cIPActionPerformed
-        cIP i =new cIP();
+        cIP i = new cIP();
         i.setVisible(true);
         dispose();
 
@@ -121,7 +121,7 @@ public class UI extends javax.swing.JFrame {
     }//GEN-LAST:event_cIPActionPerformed
 
     private void cPortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cPortActionPerformed
-        cPort p =new cPort();
+        cPort p = new cPort();
         p.setVisible(true);
         dispose();
         // TODO add your handling code here:

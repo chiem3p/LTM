@@ -6,13 +6,13 @@ import Client.Client;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author SUN
  */
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
+
 public class cPort extends javax.swing.JFrame {
 
     /**
@@ -150,23 +150,23 @@ public class cPort extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        UI u=new UI();
+        UI u = new UI();
         u.setVisible(true);
         dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_backActionPerformed
 
     private void inPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inPActionPerformed
-            // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_inPActionPerformed
 
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
-        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             String IP = ((javax.swing.JTextField) evt.getSource()).getText();
             String start = inP1.getText();
             String end = inP2.getText();
-            Client cli = new Client();
-            System.out.println(cli.getPortOpen(IP+":"+start+":"+end));
+            Client cli = new Client("localhost",8000,100000);
+            System.out.println(cli.getPortOpen(IP + ":" + start + ":" + end));
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_inPKeyPressed
@@ -176,24 +176,24 @@ public class cPort extends javax.swing.JFrame {
     }//GEN-LAST:event_inP1ActionPerformed
 
     private void inP1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inP1KeyPressed
-        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             String start = ((javax.swing.JTextField) evt.getSource()).getText();
             String IP = inP.getText();
             String end = inP2.getText();
-            Client cli = new Client();
-            System.out.println(cli.getPortOpen(IP+":"+start+":"+end));
+            Client cli = new Client("localhost",8000,100000);
+            System.out.println(cli.getPortOpen(IP + ":" + start + ":" + end));
         }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_inP1KeyPressed
 
     private void inP2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inP2KeyPressed
-        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             String end = ((javax.swing.JTextField) evt.getSource()).getText();
             String IP = inP.getText();
             String start = inP1.getText();
-            Client cli = new Client();
-            System.out.println(cli.getPortOpen(IP+":"+start+":"+end));
+            Client cli = new Client("localhost",8000,100000);
+            System.out.println(cli.getPortOpen(IP + ":" + start + ":" + end));
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_inP2KeyPressed

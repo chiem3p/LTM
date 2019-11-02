@@ -281,18 +281,10 @@ public class cWeather extends javax.swing.JFrame {
             Date date = new Date();
             long startDay = (date.getTime() / 1000) - (date.getHours() * 3600) - (date.getMinutes() * 60);
             long endDay = startDay + 86340;
-
-            // Test
-//            long startDay1 = ((date.getTime() / 1000) - (date.getHours() * 3600) - (date.getMinutes() * 60)) + 345600;
-//            long endDay1 = startDay1 + 86400;
-            // TeST1
-            System.out.println(startDay);
             //jLabel1.setText(cal.getTime().toString());
             JSONArray list = (JSONArray) result.get("list");
             //System.out.println(list.get("weather"));
-            //System.out.println(((JSONObject)list.get(0)).get("weather"));
-
-//            JSONArray weather =  (JSONArray) ((JSONObject)list.get(0)).get("weather");
+            System.out.println(((JSONObject) list.get(0)).get("weather"));
             //JSONObject weather = (JSONObject) ((JSONObject)list.get(0)).get("weather");
 //          for(Object tmp1:weather){
 //                JSONObject ob1 = (JSONObject) tmp1;
