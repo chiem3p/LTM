@@ -17,6 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
 import javax.swing.ImageIcon;
+
 public class cWeather extends javax.swing.JFrame {
 
     /**
@@ -217,7 +218,7 @@ public class cWeather extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        UI u=new UI();
+        UI u = new UI();
         u.setVisible(true);
         dispose();
         // TODO add your handling code here:
@@ -228,7 +229,7 @@ public class cWeather extends javax.swing.JFrame {
     }//GEN-LAST:event_inPActionPerformed
 
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
-        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             String location = ((javax.swing.JTextField) evt.getSource()).getText();
             System.out.println(location);
             Client cli = new Client();
@@ -240,21 +241,21 @@ public class cWeather extends javax.swing.JFrame {
             //jTextArea1.append(city.get("name").toString());
 
             Date date = new Date();
-            long startDay = (date.getTime()/1000) - (date.getHours()*3600) - (date.getMinutes()*60);
-            long endDay =  startDay + 86340;
-            
+            long startDay = (date.getTime() / 1000) - (date.getHours() * 3600) - (date.getMinutes() * 60);
+            long endDay = startDay + 86340;
+
             // Test
-            long startDay1 = ((date.getTime()/1000) - (date.getHours()*3600) - (date.getMinutes()*60))+345600;
-            long endDay1 =  startDay1 + 86400;
+            long startDay1 = ((date.getTime() / 1000) - (date.getHours() * 3600) - (date.getMinutes() * 60)) + 345600;
+            long endDay1 = startDay1 + 86400;
             // TeST1
-           System.out.println(startDay);
+            System.out.println(startDay);
             //jLabel1.setText(cal.getTime().toString());
             JSONArray list = (JSONArray) result.get("list");
             //System.out.println(list.get("weather"));
-            System.out.println(((JSONObject)list.get(0)).get("weather"));
-            
-            JSONArray weather =  (JSONArray) ((JSONObject)list.get(0)).get("weather");
-            
+            System.out.println(((JSONObject) list.get(0)).get("weather"));
+
+            JSONArray weather = (JSONArray) ((JSONObject) list.get(0)).get("weather");
+
             //JSONObject weather = (JSONObject) ((JSONObject)list.get(0)).get("weather");
 //          for(Object tmp1:weather){
 //                JSONObject ob1 = (JSONObject) tmp1;
@@ -289,8 +290,6 @@ public class cWeather extends javax.swing.JFrame {
 //                }
 //                
 //            }
-
-
 //                String result1;
 //                result1 = Optional.ofNullable(icon).filter(sStr -> sStr.length() != 0).map(sStr -> sStr.substring(0, sStr.length() - 1)).orElse(icon);
 //                System.out.println(result1);
@@ -298,19 +297,16 @@ public class cWeather extends javax.swing.JFrame {
 //                if(icon1<10){
 //                    System.out.println("Kha lam thang nhoc");
 //                }
-                
-            
-            
-            for(Object tmp:list){
+            for (Object tmp : list) {
                 JSONObject ob = (JSONObject) tmp;
-                long dt = (long)ob.get("dt") - (long) city.get("timezone");
-                if(dt > startDay && dt < endDay){
-                    for(Object tmp1:weather){
-                    JSONObject ob1 = (JSONObject) tmp1;
-                    System.out.println(ob1.get("main"));
-                    String main = (String) ob1.get("main");
-                    //System.out.println(main);
-                    System.out.println(ob.get("dt_txt"));
+                long dt = (long) ob.get("dt") - (long) city.get("timezone");
+                if (dt > startDay && dt < endDay) {
+                    for (Object tmp1 : weather) {
+                        JSONObject ob1 = (JSONObject) tmp1;
+                        System.out.println(ob1.get("main"));
+                        String main = (String) ob1.get("main");
+                        //System.out.println(main);
+                        System.out.println(ob.get("dt_txt"));
 
                     }
 

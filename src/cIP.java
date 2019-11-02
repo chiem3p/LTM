@@ -6,13 +6,13 @@ import Client.Client;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author SUN
  */
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
+
 public class cIP extends javax.swing.JFrame {
 
     /**
@@ -106,7 +106,7 @@ public class cIP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        UI u=new UI();
+        UI u = new UI();
         u.setVisible(true);
         dispose();
         // TODO add your handling code here:
@@ -117,7 +117,7 @@ public class cIP extends javax.swing.JFrame {
     }//GEN-LAST:event_inPActionPerformed
 
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
-        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             String ip = ((javax.swing.JTextField) evt.getSource()).getText();
             Client cli = new Client();
             //JSONObject a = cli.getWeather(location)

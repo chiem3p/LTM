@@ -66,28 +66,43 @@ public class Server {
         }
     }
 
-    public static String getPortOpen(String IP,String x,String y) {
+    public static String getPortOpen(String IP, String x, String y) {
         String data = "";
-        if(x.isEmpty() || y.isEmpty())
+        if (x.isEmpty() || y.isEmpty()) {
             return "{\"success\":false,\"error_message\":\"start port or end port is missing\"}";
-        if(Integer.parseInt(x) > Integer.parseInt(y))
+        }
+        if (Integer.parseInt(x) > Integer.parseInt(y)) {
             return "{\"success\":false,\"error_message\":\"start port is greater than end port\"}";
+        }
+        try {
+            URL url = new URL("https://api.ip2location.com/v2/?key=KNGRKJLPGS&package=WS12&ip=" + IP);
+            String content = "";
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
+                for (String line; (line = reader.readLine()) != null;) {
+                    content += line;
+                }
+            }
+            return content;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return "{\"success\":false}";
+        }
         for (int port = Integer.parseInt(x); port <= Integer.parseInt(y); port++) {
             try {
                 Socket socket = new Socket();
                 socket.connect(new InetSocketAddress(IP, port), 500);
                 socket.close();
-                data += port+","; 
+                data += port + ",";
             } catch (Exception ex) {
             }
         }
-        if(data.length()>0){
+        if (data.length() > 0) {
             data = data.substring(0, data.length() - 1);
             String[] portList = data.split(",");
             String result = "{"
                     + "\"success\":true,"
-                    + "\"data\":"+Arrays.toString(portList)
-                    +"}";
+                    + "\"data\":" + Arrays.toString(portList)
+                    + "}";
             return result;
         }
         return "{\"success\":true,\"data\":[]}";
@@ -118,7 +133,7 @@ public class Server {
                 result = getIPLocation(data.split(":")[1]);
             }
             if (data.indexOf("port") > -1) {
-                result = getPortOpen(data.split(":")[1],data.split(":")[2],data.split(":")[3]);
+                result = getPortOpen(data.split(":")[1], data.split(":")[2], data.split(":")[3]);
             }
 
             //gửi dữ liệu lại cho client
