@@ -241,7 +241,7 @@ public class cWeather extends javax.swing.JFrame {
 
             Date date = new Date();
             long startDay = (date.getTime()/1000) - (date.getHours()*3600) - (date.getMinutes()*60);
-            long endDay =  startDay + 86400;
+            long endDay =  startDay + 86340;
             
             // Test
             long startDay1 = ((date.getTime()/1000) - (date.getHours()*3600) - (date.getMinutes()*60))+345600;
