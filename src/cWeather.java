@@ -19,6 +19,7 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class cWeather extends javax.swing.JFrame {
 
@@ -98,6 +99,9 @@ public class cWeather extends javax.swing.JFrame {
         tdText21 = new javax.swing.JLabel();
         BGHN3 = new javax.swing.JLabel();
         BGHN4 = new javax.swing.JLabel();
+        BGHN1 = new javax.swing.JLabel();
+        thisTimeIMG = new javax.swing.JLabel();
+        thisTime = new javax.swing.JLabel();
         BGHN = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
@@ -348,9 +352,19 @@ public class cWeather extends javax.swing.JFrame {
         getContentPane().add(BGHN4);
         BGHN4.setBounds(1480, 440, 420, 540);
 
+        BGHN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather1.jpg"))); // NOI18N
+        getContentPane().add(BGHN1);
+        BGHN1.setBounds(500, 440, 420, 540);
+        getContentPane().add(thisTimeIMG);
+        thisTimeIMG.setBounds(350, 490, 60, 60);
+
+        thisTime.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        getContentPane().add(thisTime);
+        thisTime.setBounds(30, 490, 300, 60);
+
         BGHN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather1.jpg"))); // NOI18N
         getContentPane().add(BGHN);
-        BGHN.setBounds(500, 440, 420, 540);
+        BGHN.setBounds(10, 440, 420, 540);
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
@@ -373,9 +387,23 @@ public class cWeather extends javax.swing.JFrame {
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             String location = ((javax.swing.JTextField) evt.getSource()).getText();
-            System.out.println(location);
             Client cli = new Client();
-            JSONObject result = cli.getWeather(location);
+            JSONObject result = null;
+            try{
+                result = cli.getWeather(location);
+                System.out.println(result.get("success").toString());
+                if(result.get("success").toString().equals("false"))
+                {
+                    JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này 396");
+                    return;
+                }
+                result = (JSONObject) result.get("data");
+                
+            } catch(Exception ex){
+                System.out.println(ex+"401");
+                JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này 402");
+                return;
+            }
             //System.out.println(result);
             JSONObject city = (JSONObject) result.get("city");
             System.out.println(city.get("id"));
@@ -429,7 +457,11 @@ public class cWeather extends javax.swing.JFrame {
                     day = day + 1;
                 }
             }
-            System.out.println(now);
+            thisTime.setText(now.get("dt_txt").toString().split(" ")[1] + " " + (int) Math.ceil(Double.parseDouble(((JSONObject)now.get("main")).get("temp").toString())) + "°C" );
+            JSONObject weather = (JSONObject) ((JSONArray) now.get("weather")).get(0);
+            String main = (String) weather.get("main");
+            ImageIcon I1 = new ImageIcon( main.equals("Rain") ? "./src/image/Rain.png": (main.equals("Clouds") ? "./src/image/Cloud.png" : "./src/image/Sun.png" ) );
+            thisTimeIMG.setIcon(I1);
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_inPKeyPressed
@@ -692,6 +724,7 @@ public class cWeather extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BG;
     private javax.swing.JLabel BGHN;
+    private javax.swing.JLabel BGHN1;
     private javax.swing.JLabel BGHN3;
     private javax.swing.JLabel BGHN4;
     private javax.swing.JButton back;
@@ -739,6 +772,8 @@ public class cWeather extends javax.swing.JFrame {
     private javax.swing.JLabel tdText7;
     private javax.swing.JLabel tdText8;
     private javax.swing.JLabel tdText9;
+    private javax.swing.JLabel thisTime;
+    private javax.swing.JLabel thisTimeIMG;
     private javax.swing.JLabel today1;
     private javax.swing.JLabel today2;
     private javax.swing.JLabel today3;

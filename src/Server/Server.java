@@ -36,7 +36,7 @@ public class Server {
                 }
             };
             if (resultData == null) {
-                return "{\"success\":true}";
+                return "{\"success\":false}";
             }
             URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?appid=b807789d6524ad85376b5961cc402be8&units=metric&id=" + resultData.get("id").toString());
             content = "";
@@ -45,7 +45,7 @@ public class Server {
                     content += line;
                 }
             }
-            return content;
+            return "{\"success\":true,\"data\":"+content+"}";
         } catch (Exception ex) {
             System.out.println(ex);
             return "{\"success\":false}";
