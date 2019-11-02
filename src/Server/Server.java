@@ -68,6 +68,10 @@ public class Server {
 
     public static String getPortOpen(String IP,String x,String y) {
         String data = "";
+        if(x.isEmpty() || y.isEmpty())
+            return "{\"success\":false,\"error_message\":\"start port or end port is missing\"}";
+        if(Integer.parseInt(x) > Integer.parseInt(y))
+            return "{\"success\":false,\"error_message\":\"start port is greater than end port\"}";
         for (int port = Integer.parseInt(x); port <= Integer.parseInt(y); port++) {
             try {
                 Socket socket = new Socket();
@@ -86,7 +90,7 @@ public class Server {
                     +"}";
             return result;
         }
-        return "{\"success\":false}";
+        return "{\"success\":true,\"data\":[]}";
     }
 
     public static void main(String args[]) throws Exception {
