@@ -2,3 +2,5 @@
 buid
 /dist/
 /nbproject
+/dist
+/src/*.form

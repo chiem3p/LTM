@@ -13,9 +13,12 @@ import org.json.simple.JSONArray;
 import Client.Client;
 import com.sun.jmx.snmp.Timestamp;
 import java.io.File;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 public class cWeather extends javax.swing.JFrame {
@@ -237,25 +240,16 @@ public class cWeather extends javax.swing.JFrame {
             //System.out.println(result);
             JSONObject city = (JSONObject) result.get("city");
             System.out.println(city.get("id"));
-            //System.out.println(city.get("name"));
+            System.out.println(city.get("name"));
             //jTextArea1.append(city.get("name").toString());
 
             Date date = new Date();
             long startDay = (date.getTime() / 1000) - (date.getHours() * 3600) - (date.getMinutes() * 60);
             long endDay = startDay + 86340;
-
-            // Test
-            long startDay1 = ((date.getTime() / 1000) - (date.getHours() * 3600) - (date.getMinutes() * 60)) + 345600;
-            long endDay1 = startDay1 + 86400;
-            // TeST1
-            System.out.println(startDay);
             //jLabel1.setText(cal.getTime().toString());
             JSONArray list = (JSONArray) result.get("list");
             //System.out.println(list.get("weather"));
             System.out.println(((JSONObject) list.get(0)).get("weather"));
-
-            JSONArray weather = (JSONArray) ((JSONObject) list.get(0)).get("weather");
-
             //JSONObject weather = (JSONObject) ((JSONObject)list.get(0)).get("weather");
 //          for(Object tmp1:weather){
 //                JSONObject ob1 = (JSONObject) tmp1;
@@ -298,19 +292,43 @@ public class cWeather extends javax.swing.JFrame {
 //                    System.out.println("Kha lam thang nhoc");
 //                }
             for (Object tmp : list) {
+                int test = 1;
                 JSONObject ob = (JSONObject) tmp;
                 long dt = (long) ob.get("dt") - (long) city.get("timezone");
                 if (dt > startDay && dt < endDay) {
-                    for (Object tmp1 : weather) {
-                        JSONObject ob1 = (JSONObject) tmp1;
-                        System.out.println(ob1.get("main"));
-                        String main = (String) ob1.get("main");
-                        //System.out.println(main);
-                        System.out.println(ob.get("dt_txt"));
-
+                    System.out.println(ob.get("dt_txt"));
+                    JSONObject weather = (JSONObject) ((JSONArray) ob.get("weather")).get(0);
+                    String main = (String) weather.get("main");
+                    if (weather.get("main").equals("Clouds")) {
+                        System.out.println("Trời có mây");
                     }
-
+                    if (main.equals("Rain")) {
+                        System.out.println("Trời mưa");
+                    }
+                    if (main.equals("Clear")) {
+                        System.out.println("Trời nắng");
+                    }
+                    if (main.equals("Rain")) {
+                        String pathName = ("./src/image/rain1.gif");
+                        ImageIcon I1 = new ImageIcon(pathName);
+                        File myFile = new File(pathName);
+                        System.out.println(myFile.exists());  // check to see if file exists.  can delete later
+                        jLabel2.setIcon(I1);
+                    }
+                    if (main.equals("Clouds")) {
+                        String pathName = "./src/image/clound.jpg";
+                        ImageIcon I1 = new ImageIcon(pathName);
+                        File myFile = new File(pathName);
+                        System.out.println(myFile.exists());  // check to see if file exists.  can delete later
+                        jLabel2.setIcon(I1);
+                    }
+                } else {
+                    startDay += 86400;
+                    endDay += 86400;
+                    System.out.println(test);
+                    test = test + 1;
                 }
+
             }
         }
         // TODO add your handling code here:
