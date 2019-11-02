@@ -36,16 +36,16 @@ public class Server {
                 }
             };
             if (resultData == null) {
-                return "{\"success\":true}";
+                return "{\"success\":false}";
             }
-            URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?appid=b807789d6524ad85376b5961cc402be8&id=" + resultData.get("id").toString());
+            URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?appid=b807789d6524ad85376b5961cc402be8&units=metric&id=" + resultData.get("id").toString());
             content = "";
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
                 for (String line; (line = reader.readLine()) != null;) {
                     content += line;
                 }
             }
-            return content;
+            return "{\"success\":true,\"data\":"+content+"}";
         } catch (Exception ex) {
             System.out.println(ex);
             return "{\"success\":false}";
