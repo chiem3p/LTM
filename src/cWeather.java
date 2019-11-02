@@ -53,17 +53,32 @@ public class cWeather extends javax.swing.JFrame {
         borderInP = new javax.swing.JLabel();
         borderday2 = new javax.swing.JLabel();
         borderday3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        day1 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        today1 = new javax.swing.JLabel();
+        today2 = new javax.swing.JLabel();
+        today3 = new javax.swing.JLabel();
+        today4 = new javax.swing.JLabel();
+        today5 = new javax.swing.JLabel();
+        today6 = new javax.swing.JLabel();
+        today7 = new javax.swing.JLabel();
+        BGHN = new javax.swing.JLabel();
         borderday5 = new javax.swing.JLabel();
-        day2 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        day = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        day3 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        nextday1 = new javax.swing.JLabel();
+        nextday2 = new javax.swing.JLabel();
+        nextday3 = new javax.swing.JLabel();
+        nextday4 = new javax.swing.JLabel();
+        nextday5 = new javax.swing.JLabel();
+        nextday6 = new javax.swing.JLabel();
+        nextday7 = new javax.swing.JLabel();
+        BGHN3 = new javax.swing.JLabel();
+        nextend1 = new javax.swing.JLabel();
+        nextend2 = new javax.swing.JLabel();
+        nextend3 = new javax.swing.JLabel();
+        nextend4 = new javax.swing.JLabel();
+        nextend5 = new javax.swing.JLabel();
+        nextend6 = new javax.swing.JLabel();
+        nextend7 = new javax.swing.JLabel();
+        BGHN4 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -167,51 +182,71 @@ public class cWeather extends javax.swing.JFrame {
         borderday3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon5.png"))); // NOI18N
         getContentPane().add(borderday3);
         borderday3.setBounds(1480, 370, 420, 90);
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(540, 460, 500, 530);
+        getContentPane().add(today1);
+        today1.setBounds(830, 480, 60, 60);
+        getContentPane().add(today2);
+        today2.setBounds(830, 550, 60, 60);
+        getContentPane().add(today3);
+        today3.setBounds(830, 620, 60, 60);
+        getContentPane().add(today4);
+        today4.setBounds(830, 690, 60, 60);
+        getContentPane().add(today5);
+        today5.setBounds(830, 760, 60, 60);
+        getContentPane().add(today6);
+        today6.setBounds(830, 830, 60, 60);
+        getContentPane().add(today7);
+        today7.setBounds(830, 900, 60, 60);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
-        jTextArea2.setRows(5);
-        day1.setViewportView(jTextArea2);
-
-        getContentPane().add(day1);
-        day1.setBounds(500, 450, 420, 520);
+        BGHN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather1.jpg"))); // NOI18N
+        getContentPane().add(BGHN);
+        BGHN.setBounds(500, 440, 420, 540);
 
         borderday5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         borderday5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon4.png"))); // NOI18N
         getContentPane().add(borderday5);
         borderday5.setBounds(990, 370, 420, 90);
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
-        jTextArea3.setRows(5);
-        day2.setViewportView(jTextArea3);
-
-        getContentPane().add(day2);
-        day2.setBounds(990, 450, 420, 520);
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
-        jTextArea1.setRows(5);
-        day.setViewportView(jTextArea1);
-
-        getContentPane().add(day);
-        day.setBounds(20, 450, 420, 520);
-
-        jTextArea4.setColumns(20);
-        jTextArea4.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
-        jTextArea4.setRows(5);
-        day3.setViewportView(jTextArea4);
-
-        getContentPane().add(day3);
-        day3.setBounds(1480, 450, 420, 520);
-
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(830, 280, 380, 60);
+        getContentPane().add(nextday1);
+        nextday1.setBounds(1320, 480, 60, 60);
+        getContentPane().add(nextday2);
+        nextday2.setBounds(1320, 550, 60, 60);
+        getContentPane().add(nextday3);
+        nextday3.setBounds(1320, 620, 60, 60);
+        getContentPane().add(nextday4);
+        nextday4.setBounds(1320, 690, 60, 60);
+        getContentPane().add(nextday5);
+        nextday5.setBounds(1320, 760, 60, 60);
+        getContentPane().add(nextday6);
+        nextday6.setBounds(1320, 830, 60, 60);
+        getContentPane().add(nextday7);
+        nextday7.setBounds(1320, 900, 60, 60);
+
+        BGHN3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather1.jpg"))); // NOI18N
+        getContentPane().add(BGHN3);
+        BGHN3.setBounds(990, 440, 420, 540);
+        getContentPane().add(nextend1);
+        nextend1.setBounds(1810, 480, 60, 60);
+        getContentPane().add(nextend2);
+        nextend2.setBounds(1810, 550, 60, 60);
+        getContentPane().add(nextend3);
+        nextend3.setBounds(1810, 620, 60, 60);
+        getContentPane().add(nextend4);
+        nextend4.setBounds(1810, 690, 60, 60);
+        getContentPane().add(nextend5);
+        nextend5.setBounds(1810, 760, 60, 60);
+        getContentPane().add(nextend6);
+        nextend6.setBounds(1810, 830, 60, 60);
+        getContentPane().add(nextend7);
+        nextend7.setBounds(1810, 900, 60, 60);
+
+        BGHN4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather1.jpg"))); // NOI18N
+        getContentPane().add(BGHN4);
+        BGHN4.setBounds(1480, 440, 420, 540);
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
@@ -299,44 +334,28 @@ public class cWeather extends javax.swing.JFrame {
 //                if(icon1<10){
 //                    System.out.println("Kha lam thang nhoc");
 //                }
-            for (Object tmp : list) {
-                int test = 1;
-                JSONObject ob = (JSONObject) tmp;
+            String[] listMain = new String[7];
+            int j = 0;
+            int test = 0;
+            for (int i = 0; i < list.size(); i++) {
+                JSONObject ob = (JSONObject) list.get(i);
                 long dt = (long) ob.get("dt") - (long) city.get("timezone");
                 if (dt > startDay && dt < endDay) {
                     System.out.println(ob.get("dt_txt"));
                     JSONObject weather = (JSONObject) ((JSONArray) ob.get("weather")).get(0);
                     String main = (String) weather.get("main");
-                    if (weather.get("main").equals("Clouds")) {
-                        System.out.println("Trời có mây");
-                    }
-                    if (main.equals("Rain")) {
-                        System.out.println("Trời mưa");
-                    }
-                    if (main.equals("Clear")) {
-                        System.out.println("Trời nắng");
-                    }
-                    if (main.equals("Rain")) {
-                        String pathName = ("./src/image/rain1.gif");
-                        ImageIcon I1 = new ImageIcon(pathName);
-                        File myFile = new File(pathName);
-                        System.out.println(myFile.exists());  // check to see if file exists.  can delete later
-                        jLabel2.setIcon(I1);
-                    }
-                    if (main.equals("Clouds")) {
-                        String pathName = "./src/image/clound.jpg";
-                        ImageIcon I1 = new ImageIcon(pathName);
-                        File myFile = new File(pathName);
-                        System.out.println(myFile.exists());  // check to see if file exists.  can delete later
-                        jLabel2.setIcon(I1);
-                    }
+
+                    System.out.println(weather.get("main"));
+                    listMain[j++] = main;
+
                 } else {
+                    setIcon(listMain, test);
+                    listMain = new String[7];
+                    j = 0;
                     startDay += 86400;
                     endDay += 86400;
-                    System.out.println(test);
                     test = test + 1;
                 }
-
             }
         }
         // TODO add your handling code here:
@@ -377,27 +396,159 @@ public class cWeather extends javax.swing.JFrame {
         });
     }
 
+    public void setIcon(String[] listImage, int day) {
+        for (int i = 0; i < listImage.length; i++) {
+            try {
+                ImageIcon I1 = null;
+                if (listImage[i].equals("Rain")) {
+                    String pathName = ("./src/image/Rain.png");
+                    I1 = new ImageIcon(pathName);
+
+                }
+                if (listImage[i].equals("Clear")) {
+                    String pathName = ("./src/image/Sun.png");
+                    I1 = new ImageIcon(pathName);
+
+                }
+                if (listImage[i].equals("Clouds")) {
+                    String pathName = "./src/image/Cloud.png";
+                    I1 = new ImageIcon(pathName);
+                }
+                switch (i) {
+                    case 0:
+                        switch (day) {
+                            case 0:
+                                today1.setIcon(I1);
+                                break;
+                            case 1:
+                                nextday1.setIcon(I1);
+                                break;
+                            case 2:
+                                nextend1.setIcon(I1);
+                                break;
+                        }
+                        break;
+                    case 1:
+                        switch (day) {
+                            case 0:
+                                today2.setIcon(I1);
+                                break;
+                            case 1:
+                                nextday2.setIcon(I1);
+                                break;
+                            case 2:
+                                nextend2.setIcon(I1);
+                                break;
+                        }
+                        break;
+                    case 2:
+                        switch (day) {
+                            case 0:
+                                today3.setIcon(I1);
+                                break;
+                            case 1:
+                                nextday3.setIcon(I1);
+                                break;
+                            case 2:
+                                nextend3.setIcon(I1);
+                                break;
+                        }
+                        break;
+                    case 3:
+                        switch (day) {
+                            case 0:
+                                today4.setIcon(I1);
+                                break;
+                            case 1:
+                                nextday4.setIcon(I1);
+                                break;
+                            case 2:
+                                nextend4.setIcon(I1);
+                                break;
+                        }
+                        break;
+                    case 4:
+                        switch (day) {
+                            case 0:
+                                today5.setIcon(I1);
+                                break;
+                            case 1:
+                                nextday5.setIcon(I1);
+                                break;
+                            case 2:
+                                nextend5.setIcon(I1);
+                                break;
+                        }
+                        break;
+                    case 5:
+                        switch (day) {
+                            case 0:
+                                today6.setIcon(I1);
+                                break;
+                            case 1:
+                                nextday6.setIcon(I1);
+                                break;
+                            case 2:
+                                nextend6.setIcon(I1);
+                                break;
+                        }
+                        break;
+                    case 6:
+                        switch (day) {
+                            case 0:
+                                today7.setIcon(I1);
+                                break;
+                            case 1:
+                                nextday7.setIcon(I1);
+                                break;
+                            case 2:
+                                nextend7.setIcon(I1);
+                                break;
+
+                        }
+                        break;
+                }
+            } catch (Exception ex) {
+                System.out.println(i);
+            }
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BG;
+    private javax.swing.JLabel BGHN;
+    private javax.swing.JLabel BGHN3;
+    private javax.swing.JLabel BGHN4;
     private javax.swing.JButton back;
     private javax.swing.JLabel borderInP;
     private javax.swing.JLabel borderday1;
     private javax.swing.JLabel borderday2;
     private javax.swing.JLabel borderday3;
     private javax.swing.JLabel borderday5;
-    private javax.swing.JScrollPane day;
-    private javax.swing.JScrollPane day1;
-    private javax.swing.JScrollPane day2;
-    private javax.swing.JScrollPane day3;
     private javax.swing.JLabel img;
     private javax.swing.JLabel imgBack;
     private javax.swing.JTextField inP;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JLabel nextday1;
+    private javax.swing.JLabel nextday2;
+    private javax.swing.JLabel nextday3;
+    private javax.swing.JLabel nextday4;
+    private javax.swing.JLabel nextday5;
+    private javax.swing.JLabel nextday6;
+    private javax.swing.JLabel nextday7;
+    private javax.swing.JLabel nextend1;
+    private javax.swing.JLabel nextend2;
+    private javax.swing.JLabel nextend3;
+    private javax.swing.JLabel nextend4;
+    private javax.swing.JLabel nextend5;
+    private javax.swing.JLabel nextend6;
+    private javax.swing.JLabel nextend7;
+    private javax.swing.JLabel today1;
+    private javax.swing.JLabel today2;
+    private javax.swing.JLabel today3;
+    private javax.swing.JLabel today4;
+    private javax.swing.JLabel today5;
+    private javax.swing.JLabel today6;
+    private javax.swing.JLabel today7;
     private javax.swing.JLabel txt;
     private javax.swing.JLabel txtINP;
     private javax.swing.JLabel txtday;
