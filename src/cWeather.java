@@ -44,13 +44,18 @@ public class cWeather extends javax.swing.JFrame {
         back = new javax.swing.JButton();
         imgBack = new javax.swing.JLabel();
         txtINP = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         inP = new javax.swing.JTextField();
+        borderInP = new javax.swing.JLabel();
+        txtCity = new javax.swing.JLabel();
+        txtINP1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         txtht = new javax.swing.JLabel();
         txtday2 = new javax.swing.JLabel();
         txtday1 = new javax.swing.JLabel();
         txtday = new javax.swing.JLabel();
         borderday1 = new javax.swing.JLabel();
-        borderInP = new javax.swing.JLabel();
         borderday2 = new javax.swing.JLabel();
         borderday3 = new javax.swing.JLabel();
         today1 = new javax.swing.JLabel();
@@ -61,7 +66,6 @@ public class cWeather extends javax.swing.JFrame {
         today6 = new javax.swing.JLabel();
         today7 = new javax.swing.JLabel();
         borderday5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         nextday1 = new javax.swing.JLabel();
         nextday2 = new javax.swing.JLabel();
         nextday3 = new javax.swing.JLabel();
@@ -115,11 +119,11 @@ public class cWeather extends javax.swing.JFrame {
         txt.setForeground(new java.awt.Color(255, 255, 255));
         txt.setText("Tra cứu thời tiết");
         getContentPane().add(txt);
-        txt.setBounds(790, 50, 480, 60);
+        txt.setBounds(800, 50, 480, 60);
 
         img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1c.png"))); // NOI18N
         getContentPane().add(img);
-        img.setBounds(360, 0, 1190, 200);
+        img.setBounds(360, 10, 1190, 170);
 
         back.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         back.setText("Back");
@@ -130,20 +134,27 @@ public class cWeather extends javax.swing.JFrame {
             }
         });
         getContentPane().add(back);
-        back.setBounds(90, 980, 160, 60);
+        back.setBounds(90, 970, 160, 60);
 
         imgBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
         getContentPane().add(imgBack);
-        imgBack.setBounds(70, 980, 230, 60);
+        imgBack.setBounds(70, 970, 230, 60);
 
         txtINP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtINP.setForeground(new java.awt.Color(255, 255, 255));
         txtINP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtINP.setText("Nhập tỉnh/Thành phố:");
         txtINP.setToolTipText("");
         getContentPane().add(txtINP);
-        txtINP.setBounds(200, 200, 430, 70);
+        txtINP.setBounds(300, 180, 440, 80);
 
-        inP.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/txtInpCity.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(300, 180, 440, 80);
+
+        inP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        inP.setForeground(new java.awt.Color(51, 51, 51));
         inP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inP.setBorder(null);
         inP.addActionListener(new java.awt.event.ActionListener() {
@@ -157,21 +168,51 @@ public class cWeather extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inP);
-        inP.setBounds(637, 200, 740, 67);
+        inP.setBounds(730, 190, 770, 60);
+
+        borderInP.setForeground(new java.awt.Color(51, 51, 51));
+        borderInP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/border.png"))); // NOI18N
+        getContentPane().add(borderInP);
+        borderInP.setBounds(300, 180, 1210, 80);
+
+        txtCity.setBackground(new java.awt.Color(255, 255, 255));
+        txtCity.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(txtCity);
+        txtCity.setBounds(740, 260, 770, 90);
+
+        txtINP1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtINP1.setForeground(new java.awt.Color(255, 255, 255));
+        txtINP1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtINP1.setText("Kết quả tìm thấy:");
+        txtINP1.setToolTipText("");
+        getContentPane().add(txtINP1);
+        txtINP1.setBounds(300, 260, 440, 90);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/txtInpCity.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(300, 260, 440, 90);
+
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/border.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(290, 260, 1230, 90);
 
         txtht.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         txtht.setForeground(new java.awt.Color(255, 255, 255));
         txtht.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtht.setText("Hiện tại");
         getContentPane().add(txtht);
-        txtht.setBounds(120, 370, 220, 90);
+        txtht.setBounds(130, 360, 220, 80);
 
         txtday2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         txtday2.setForeground(new java.awt.Color(255, 255, 255));
         txtday2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtday2.setText("Ngày kia");
         getContentPane().add(txtday2);
-        txtday2.setBounds(1590, 370, 200, 90);
+        txtday2.setBounds(1600, 360, 200, 80);
 
         txtday1.setBackground(new java.awt.Color(255, 255, 255));
         txtday1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -179,192 +220,229 @@ public class cWeather extends javax.swing.JFrame {
         txtday1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtday1.setText("Ngày mai");
         getContentPane().add(txtday1);
-        txtday1.setBounds(1100, 370, 200, 80);
+        txtday1.setBounds(1110, 360, 200, 80);
 
         txtday.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         txtday.setForeground(new java.awt.Color(255, 255, 255));
         txtday.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtday.setText("Hôm nay");
         getContentPane().add(txtday);
-        txtday.setBounds(590, 370, 250, 90);
+        txtday.setBounds(600, 360, 250, 80);
 
         borderday1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         borderday1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon6.png"))); // NOI18N
         getContentPane().add(borderday1);
-        borderday1.setBounds(500, 370, 430, 90);
-
-        borderInP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/border.png"))); // NOI18N
-        getContentPane().add(borderInP);
-        borderInP.setBounds(630, 194, 780, 80);
+        borderday1.setBounds(510, 360, 430, 80);
 
         borderday2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         borderday2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon3.png"))); // NOI18N
         getContentPane().add(borderday2);
-        borderday2.setBounds(10, 370, 440, 90);
+        borderday2.setBounds(20, 360, 440, 80);
 
         borderday3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         borderday3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon5.png"))); // NOI18N
         getContentPane().add(borderday3);
-        borderday3.setBounds(1480, 370, 420, 90);
+        borderday3.setBounds(1490, 360, 420, 80);
         getContentPane().add(today1);
-        today1.setBounds(830, 480, 60, 60);
+        today1.setBounds(840, 460, 60, 60);
         getContentPane().add(today2);
-        today2.setBounds(830, 550, 60, 60);
+        today2.setBounds(840, 530, 60, 60);
         getContentPane().add(today3);
-        today3.setBounds(830, 620, 60, 60);
+        today3.setBounds(840, 600, 60, 60);
         getContentPane().add(today4);
-        today4.setBounds(830, 690, 60, 60);
+        today4.setBounds(840, 670, 60, 60);
         getContentPane().add(today5);
-        today5.setBounds(830, 760, 60, 60);
+        today5.setBounds(840, 740, 60, 60);
         getContentPane().add(today6);
-        today6.setBounds(830, 830, 60, 60);
+        today6.setBounds(840, 810, 60, 60);
         getContentPane().add(today7);
-        today7.setBounds(830, 900, 60, 60);
+        today7.setBounds(840, 880, 60, 60);
 
         borderday5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         borderday5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon4.png"))); // NOI18N
         getContentPane().add(borderday5);
-        borderday5.setBounds(990, 370, 420, 90);
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(830, 280, 380, 60);
+        borderday5.setBounds(1000, 360, 420, 80);
         getContentPane().add(nextday1);
-        nextday1.setBounds(1320, 480, 60, 60);
+        nextday1.setBounds(1330, 460, 60, 60);
         getContentPane().add(nextday2);
-        nextday2.setBounds(1320, 550, 60, 60);
+        nextday2.setBounds(1330, 530, 60, 60);
         getContentPane().add(nextday3);
-        nextday3.setBounds(1320, 620, 60, 60);
+        nextday3.setBounds(1330, 600, 60, 60);
         getContentPane().add(nextday4);
-        nextday4.setBounds(1320, 690, 60, 60);
+        nextday4.setBounds(1330, 670, 60, 60);
         getContentPane().add(nextday5);
-        nextday5.setBounds(1320, 760, 60, 60);
+        nextday5.setBounds(1330, 740, 60, 60);
         getContentPane().add(nextday6);
-        nextday6.setBounds(1320, 830, 60, 60);
+        nextday6.setBounds(1330, 810, 60, 60);
         getContentPane().add(nextday7);
-        nextday7.setBounds(1320, 900, 60, 60);
+        nextday7.setBounds(1330, 880, 60, 60);
         getContentPane().add(nextend1);
-        nextend1.setBounds(1810, 480, 60, 60);
+        nextend1.setBounds(1820, 460, 60, 60);
         getContentPane().add(nextend2);
-        nextend2.setBounds(1810, 550, 60, 60);
+        nextend2.setBounds(1820, 530, 60, 60);
         getContentPane().add(nextend3);
-        nextend3.setBounds(1810, 620, 60, 60);
+        nextend3.setBounds(1820, 600, 60, 60);
         getContentPane().add(nextend4);
-        nextend4.setBounds(1810, 690, 60, 60);
+        nextend4.setBounds(1820, 670, 60, 60);
         getContentPane().add(nextend5);
-        nextend5.setBounds(1810, 760, 60, 60);
+        nextend5.setBounds(1820, 740, 60, 60);
         getContentPane().add(nextend6);
-        nextend6.setBounds(1810, 830, 60, 60);
+        nextend6.setBounds(1820, 810, 60, 60);
         getContentPane().add(nextend7);
-        nextend7.setBounds(1810, 900, 60, 60);
+        nextend7.setBounds(1820, 880, 60, 60);
 
+        tdText1.setBackground(new java.awt.Color(255, 255, 255));
         tdText1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText1.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText1);
-        tdText1.setBounds(520, 480, 300, 60);
+        tdText1.setBounds(530, 460, 300, 60);
 
+        tdText2.setBackground(new java.awt.Color(255, 255, 255));
         tdText2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText2.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText2);
-        tdText2.setBounds(520, 550, 300, 60);
+        tdText2.setBounds(530, 530, 300, 60);
 
+        tdText3.setBackground(new java.awt.Color(255, 255, 255));
         tdText3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText3.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText3);
-        tdText3.setBounds(520, 620, 300, 60);
+        tdText3.setBounds(530, 600, 300, 60);
 
+        tdText4.setBackground(new java.awt.Color(255, 255, 255));
         tdText4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText4.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText4);
-        tdText4.setBounds(520, 690, 300, 60);
+        tdText4.setBounds(530, 670, 300, 60);
 
+        tdText5.setBackground(new java.awt.Color(255, 255, 255));
         tdText5.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText5.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText5);
-        tdText5.setBounds(520, 760, 300, 60);
+        tdText5.setBounds(530, 740, 300, 60);
 
+        tdText6.setBackground(new java.awt.Color(255, 255, 255));
         tdText6.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText6.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText6);
-        tdText6.setBounds(520, 830, 300, 60);
+        tdText6.setBounds(530, 810, 300, 60);
 
+        tdText7.setBackground(new java.awt.Color(255, 255, 255));
         tdText7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText7.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText7);
-        tdText7.setBounds(520, 900, 300, 60);
+        tdText7.setBounds(530, 880, 300, 60);
 
+        tdText8.setBackground(new java.awt.Color(255, 255, 255));
         tdText8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText8.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText8);
-        tdText8.setBounds(1010, 480, 300, 60);
+        tdText8.setBounds(1020, 460, 300, 60);
 
+        tdText9.setBackground(new java.awt.Color(255, 255, 255));
         tdText9.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText9.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText9);
-        tdText9.setBounds(1010, 550, 300, 60);
+        tdText9.setBounds(1020, 530, 300, 60);
 
+        tdText10.setBackground(new java.awt.Color(255, 255, 255));
         tdText10.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText10.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText10);
-        tdText10.setBounds(1010, 620, 300, 60);
+        tdText10.setBounds(1020, 600, 300, 60);
 
+        tdText11.setBackground(new java.awt.Color(255, 255, 255));
         tdText11.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText11.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText11);
-        tdText11.setBounds(1010, 690, 300, 60);
+        tdText11.setBounds(1020, 670, 300, 60);
 
+        tdText12.setBackground(new java.awt.Color(255, 255, 255));
         tdText12.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText12.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText12);
-        tdText12.setBounds(1010, 760, 300, 60);
+        tdText12.setBounds(1020, 740, 300, 60);
 
+        tdText13.setBackground(new java.awt.Color(255, 255, 255));
         tdText13.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText13.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText13);
-        tdText13.setBounds(1010, 830, 300, 60);
+        tdText13.setBounds(1020, 810, 300, 60);
 
+        tdText14.setBackground(new java.awt.Color(255, 255, 255));
         tdText14.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText14.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText14);
-        tdText14.setBounds(1010, 900, 300, 60);
+        tdText14.setBounds(1020, 880, 300, 60);
 
+        tdText15.setBackground(new java.awt.Color(255, 255, 255));
         tdText15.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText15.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText15);
-        tdText15.setBounds(1490, 480, 300, 60);
+        tdText15.setBounds(1510, 460, 300, 60);
 
+        tdText16.setBackground(new java.awt.Color(255, 255, 255));
         tdText16.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText16.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText16);
-        tdText16.setBounds(1490, 550, 300, 60);
+        tdText16.setBounds(1510, 530, 300, 60);
 
+        tdText17.setBackground(new java.awt.Color(255, 255, 255));
         tdText17.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText17.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText17);
-        tdText17.setBounds(1490, 620, 300, 60);
+        tdText17.setBounds(1510, 600, 300, 60);
 
+        tdText18.setBackground(new java.awt.Color(255, 255, 255));
         tdText18.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText18.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText18);
-        tdText18.setBounds(1490, 690, 300, 60);
+        tdText18.setBounds(1510, 670, 300, 60);
 
+        tdText19.setBackground(new java.awt.Color(255, 255, 255));
         tdText19.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText19.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText19);
-        tdText19.setBounds(1490, 760, 300, 60);
+        tdText19.setBounds(1510, 740, 300, 60);
 
+        tdText20.setBackground(new java.awt.Color(255, 255, 255));
         tdText20.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText20.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText20);
-        tdText20.setBounds(1490, 830, 300, 60);
+        tdText20.setBounds(1510, 810, 300, 60);
 
+        tdText21.setBackground(new java.awt.Color(255, 255, 255));
         tdText21.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tdText21.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(tdText21);
-        tdText21.setBounds(1490, 900, 300, 60);
+        tdText21.setBounds(1510, 880, 300, 60);
 
-        BGHN3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather1.jpg"))); // NOI18N
+        BGHN3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BGHN3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather3.jpg"))); // NOI18N
         getContentPane().add(BGHN3);
-        BGHN3.setBounds(990, 440, 420, 540);
+        BGHN3.setBounds(990, 420, 440, 560);
 
-        BGHN4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather1.jpg"))); // NOI18N
+        BGHN4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BGHN4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather3.jpg"))); // NOI18N
         getContentPane().add(BGHN4);
-        BGHN4.setBounds(1480, 440, 420, 540);
+        BGHN4.setBounds(1480, 420, 440, 560);
 
-        BGHN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather1.jpg"))); // NOI18N
+        BGHN1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BGHN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather3.jpg"))); // NOI18N
         getContentPane().add(BGHN1);
-        BGHN1.setBounds(500, 440, 420, 540);
+        BGHN1.setBounds(500, 420, 450, 560);
         getContentPane().add(thisTimeIMG);
-        thisTimeIMG.setBounds(350, 490, 60, 60);
+        thisTimeIMG.setBounds(360, 470, 60, 60);
 
         thisTime.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        thisTime.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(thisTime);
-        thisTime.setBounds(30, 490, 300, 60);
+        thisTime.setBounds(40, 470, 300, 60);
 
-        BGHN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather1.jpg"))); // NOI18N
+        BGHN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BGHN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather3.jpg"))); // NOI18N
         getContentPane().add(BGHN);
-        BGHN.setBounds(10, 440, 420, 540);
+        BGHN.setBounds(20, 420, 430, 560);
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
@@ -410,6 +488,7 @@ public class cWeather extends javax.swing.JFrame {
             System.out.println(city.get("name"));
             //jTextArea1.append(city.get("name").toString());
 
+            txtCity.setText(city.get("name").toString());
             Date date = new Date();
             long startDay = (date.getTime() / 1000) - (date.getHours() * 3600) - (date.getMinutes() * 60);
             long endDay = startDay + 86340;
@@ -442,7 +521,7 @@ public class cWeather extends javax.swing.JFrame {
 //                    System.out.println(ob.get("dt_txt"));
                     JSONObject weather = (JSONObject) ((JSONArray) ob.get("weather")).get(0);
                     String main = (String) weather.get("main");
-                    listTime[j] = ob.get("dt_txt").toString().split(" ")[1] + " " + (int) Math.ceil(Double.parseDouble(((JSONObject)ob.get("main")).get("temp").toString())) + "°C" ;
+                    listTime[j] = ob.get("dt_txt").toString().split(" ")[1] + "   " + (int) Math.ceil(Double.parseDouble(((JSONObject)ob.get("main")).get("temp").toString())) + "°C" ;
                     listMain[j] = main;
                     j=j+1;
 
@@ -457,11 +536,13 @@ public class cWeather extends javax.swing.JFrame {
                     day = day + 1;
                 }
             }
-            thisTime.setText(now.get("dt_txt").toString().split(" ")[1] + " " + (int) Math.ceil(Double.parseDouble(((JSONObject)now.get("main")).get("temp").toString())) + "°C" );
+            thisTime.setText(now.get("dt_txt").toString().split(" ")[1] + "   " + (int) Math.ceil(Double.parseDouble(((JSONObject)now.get("main")).get("temp").toString())) + "°C" );
             JSONObject weather = (JSONObject) ((JSONArray) now.get("weather")).get(0);
             String main = (String) weather.get("main");
             ImageIcon I1 = new ImageIcon( main.equals("Rain") ? "./src/image/Rain.png": (main.equals("Clouds") ? "./src/image/Cloud.png" : "./src/image/Sun.png" ) );
+            ImageIcon I2 = new ImageIcon( main.equals("Rain") ? "./src/image/BGRain2.jpg": (main.equals("Clouds") ? "./src/image/BGCloud.jpg" : "./src/image/BGClear.jpg" ) );
             thisTimeIMG.setIcon(I1);
+            BGHN.setIcon(I2);
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_inPKeyPressed
@@ -737,6 +818,8 @@ public class cWeather extends javax.swing.JFrame {
     private javax.swing.JLabel imgBack;
     private javax.swing.JTextField inP;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel nextday1;
     private javax.swing.JLabel nextday2;
     private javax.swing.JLabel nextday3;
@@ -782,7 +865,9 @@ public class cWeather extends javax.swing.JFrame {
     private javax.swing.JLabel today6;
     private javax.swing.JLabel today7;
     private javax.swing.JLabel txt;
+    private javax.swing.JLabel txtCity;
     private javax.swing.JLabel txtINP;
+    private javax.swing.JLabel txtINP1;
     private javax.swing.JLabel txtday;
     private javax.swing.JLabel txtday1;
     private javax.swing.JLabel txtday2;
