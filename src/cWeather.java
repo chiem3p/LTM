@@ -107,6 +107,7 @@ public class cWeather extends javax.swing.JFrame {
         thisTimeIMG = new javax.swing.JLabel();
         thisTime = new javax.swing.JLabel();
         BGHN = new javax.swing.JLabel();
+        loading = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -443,6 +444,8 @@ public class cWeather extends javax.swing.JFrame {
         BGHN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather3.jpg"))); // NOI18N
         getContentPane().add(BGHN);
         BGHN.setBounds(20, 420, 430, 560);
+        getContentPane().add(loading);
+        loading.setBounds(1570, 180, 170, 170);
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
@@ -464,12 +467,14 @@ public class cWeather extends javax.swing.JFrame {
 
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            ImageIcon loadingIcon = new ImageIcon("./src/image/loading.gif");
+            loading.setIcon(loadingIcon);
             String location = ((javax.swing.JTextField) evt.getSource()).getText();
             Client cli = new Client();
             JSONObject result = null;
             try{
                 result = cli.getWeather(location);
-                System.out.println(result.get("success").toString());
+                loading.setIcon((new ImageIcon("")));
                 if(result.get("success").toString().equals("false"))
                 {
                     JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này 396");
@@ -479,6 +484,7 @@ public class cWeather extends javax.swing.JFrame {
                 
             } catch(Exception ex){
                 System.out.println(ex+"401");
+                loading.setIcon((new ImageIcon("")));
                 JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này 402");
                 return;
             }
@@ -820,6 +826,7 @@ public class cWeather extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel loading;
     private javax.swing.JLabel nextday1;
     private javax.swing.JLabel nextday2;
     private javax.swing.JLabel nextday3;

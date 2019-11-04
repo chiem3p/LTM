@@ -31,13 +31,34 @@ public class cIP extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        back = new javax.swing.JButton();
-        imgBack = new javax.swing.JLabel();
+        txtTitle = new javax.swing.JLabel();
+        imgTitle = new javax.swing.JLabel();
         txtINP = new javax.swing.JLabel();
+        khungtxtINP = new javax.swing.JLabel();
         inP = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        back = new javax.swing.JButton();
+        imgBack = new javax.swing.JLabel();
+        INPCountry = new javax.swing.JLabel();
+        INPIP = new javax.swing.JLabel();
+        INPReg = new javax.swing.JLabel();
+        INPLong = new javax.swing.JLabel();
+        INPisp = new javax.swing.JLabel();
+        INPDomain = new javax.swing.JLabel();
+        INPLa = new javax.swing.JLabel();
+        INPCity = new javax.swing.JLabel();
+        txtISP = new javax.swing.JLabel();
+        txtIP = new javax.swing.JLabel();
+        txtRegion = new javax.swing.JLabel();
+        txtCity = new javax.swing.JLabel();
+        txtDomain = new javax.swing.JLabel();
+        txtLatitude = new javax.swing.JLabel();
+        txtLongitude = new javax.swing.JLabel();
+        txtCountry = new javax.swing.JLabel();
+        khung1 = new javax.swing.JLabel();
+        khung12 = new javax.swing.JLabel();
+        khung2 = new javax.swing.JLabel();
+        khung22 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -46,15 +67,47 @@ public class cIP extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 45)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Xác định vị trí IP");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(760, 40, 430, 60);
+        txtTitle.setFont(new java.awt.Font("Tahoma", 1, 45)); // NOI18N
+        txtTitle.setForeground(new java.awt.Color(255, 255, 255));
+        txtTitle.setText("Xác định vị trí IP");
+        getContentPane().add(txtTitle);
+        txtTitle.setBounds(760, 40, 430, 60);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(340, -10, 1090, 210);
+        imgTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1.png"))); // NOI18N
+        getContentPane().add(imgTitle);
+        imgTitle.setBounds(340, -10, 1090, 210);
+
+        txtINP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtINP.setForeground(new java.awt.Color(255, 255, 255));
+        txtINP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtINP.setText("Nhập Ip: ");
+        txtINP.setToolTipText("");
+        getContentPane().add(txtINP);
+        txtINP.setBounds(390, 190, 230, 70);
+
+        khungtxtINP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/txtInpCity.png"))); // NOI18N
+        getContentPane().add(khungtxtINP);
+        khungtxtINP.setBounds(290, 190, 450, 80);
+
+        inP.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        inP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inP.setBorder(null);
+        inP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inPActionPerformed(evt);
+            }
+        });
+        inP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inPKeyPressed(evt);
+            }
+        });
+        getContentPane().add(inP);
+        inP.setBounds(720, 197, 760, 70);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/border.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(280, 190, 1280, 80);
 
         back.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         back.setText("Back");
@@ -71,32 +124,109 @@ public class cIP extends javax.swing.JFrame {
         getContentPane().add(imgBack);
         imgBack.setBounds(70, 980, 230, 60);
 
-        txtINP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        txtINP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtINP.setText("Nhập IP: ");
-        txtINP.setToolTipText("");
-        getContentPane().add(txtINP);
-        txtINP.setBounds(400, 200, 230, 70);
+        INPCountry.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        getContentPane().add(INPCountry);
+        INPCountry.setBounds(100, 500, 430, 60);
 
-        inP.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        inP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        inP.setBorder(null);
-        inP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inPActionPerformed(evt);
-            }
-        });
-        inP.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                inPKeyPressed(evt);
-            }
-        });
-        getContentPane().add(inP);
-        inP.setBounds(637, 200, 740, 67);
+        INPIP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        getContentPane().add(INPIP);
+        INPIP.setBounds(530, 500, 430, 60);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/border.png"))); // NOI18N
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(630, 194, 780, 80);
+        INPReg.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        getContentPane().add(INPReg);
+        INPReg.setBounds(960, 500, 430, 60);
+
+        INPLong.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        getContentPane().add(INPLong);
+        INPLong.setBounds(1390, 660, 430, 60);
+
+        INPisp.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        getContentPane().add(INPisp);
+        INPisp.setBounds(100, 660, 430, 60);
+
+        INPDomain.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        getContentPane().add(INPDomain);
+        INPDomain.setBounds(530, 660, 430, 60);
+
+        INPLa.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        getContentPane().add(INPLa);
+        INPLa.setBounds(960, 660, 430, 60);
+
+        INPCity.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        getContentPane().add(INPCity);
+        INPCity.setBounds(1390, 500, 430, 60);
+
+        txtISP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtISP.setForeground(new java.awt.Color(255, 255, 255));
+        txtISP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtISP.setText("ISP");
+        getContentPane().add(txtISP);
+        txtISP.setBounds(100, 590, 430, 70);
+
+        txtIP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtIP.setForeground(new java.awt.Color(255, 255, 255));
+        txtIP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtIP.setText("IP Address");
+        getContentPane().add(txtIP);
+        txtIP.setBounds(530, 430, 430, 70);
+
+        txtRegion.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtRegion.setForeground(new java.awt.Color(255, 255, 255));
+        txtRegion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRegion.setText("Region");
+        getContentPane().add(txtRegion);
+        txtRegion.setBounds(960, 430, 430, 70);
+
+        txtCity.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtCity.setForeground(new java.awt.Color(255, 255, 255));
+        txtCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtCity.setText("City");
+        getContentPane().add(txtCity);
+        txtCity.setBounds(1390, 430, 430, 70);
+
+        txtDomain.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtDomain.setForeground(new java.awt.Color(255, 255, 255));
+        txtDomain.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtDomain.setText("Domain");
+        getContentPane().add(txtDomain);
+        txtDomain.setBounds(530, 590, 430, 70);
+
+        txtLatitude.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtLatitude.setForeground(new java.awt.Color(255, 255, 255));
+        txtLatitude.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtLatitude.setText("\tLatitude");
+        getContentPane().add(txtLatitude);
+        txtLatitude.setBounds(960, 590, 430, 70);
+
+        txtLongitude.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtLongitude.setForeground(new java.awt.Color(255, 255, 255));
+        txtLongitude.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtLongitude.setText("\tLongitude");
+        getContentPane().add(txtLongitude);
+        txtLongitude.setBounds(1390, 590, 430, 70);
+
+        txtCountry.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtCountry.setForeground(new java.awt.Color(255, 255, 255));
+        txtCountry.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtCountry.setText("Country");
+        getContentPane().add(txtCountry);
+        txtCountry.setBounds(100, 430, 430, 70);
+
+        khung1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/B.png"))); // NOI18N
+        getContentPane().add(khung1);
+        khung1.setBounds(90, 420, 1740, 86);
+
+        khung12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/B1.png"))); // NOI18N
+        getContentPane().add(khung12);
+        khung12.setBounds(90, 500, 1740, 80);
+
+        khung2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/B.png"))); // NOI18N
+        getContentPane().add(khung2);
+        khung2.setBounds(90, 580, 1740, 86);
+
+        khung22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/B1.png"))); // NOI18N
+        getContentPane().add(khung22);
+        khung22.setBounds(90, 660, 1740, 80);
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
@@ -120,7 +250,32 @@ public class cIP extends javax.swing.JFrame {
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             String ip = ((javax.swing.JTextField) evt.getSource()).getText();
             Client cli = new Client();
-            //JSONObject a = cli.getWeather(location)
+            JSONObject IP = cli.getIPLocation(ip);
+            Object longitude = IP.get("longitude");
+            Object latitude = IP.get("latitude");
+            Object address = IP.get("");
+            Object city = IP.get("city_name");
+            Object isp = IP.get("isp");
+            Object domain = IP.get("domain");
+            Object countryname = IP.get("country_name");
+            Object regionname = IP.get("region_name");
+
+            System.out.println(countryname);
+            INPCountry.setText(countryname.toString());
+            System.out.println(city);
+            INPCity.setText(city.toString());
+            System.out.println(regionname);
+            INPReg.setText(regionname.toString());
+            System.out.println(isp);
+            INPisp.setText(isp.toString());
+            System.out.println(domain);
+            INPDomain.setText(domain.toString());
+            System.out.println(latitude);
+            INPLa.setText(latitude.toString());
+            System.out.println(longitude);
+            INPLong.setText(longitude.toString());
+            System.out.println();
+            
             System.out.println(cli.getIPLocation(ip));
         }
         // TODO add your handling code here:
@@ -163,12 +318,33 @@ public class cIP extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BG;
+    private javax.swing.JLabel INPCity;
+    private javax.swing.JLabel INPCountry;
+    private javax.swing.JLabel INPDomain;
+    private javax.swing.JLabel INPIP;
+    private javax.swing.JLabel INPLa;
+    private javax.swing.JLabel INPLong;
+    private javax.swing.JLabel INPReg;
+    private javax.swing.JLabel INPisp;
     private javax.swing.JButton back;
     private javax.swing.JLabel imgBack;
+    private javax.swing.JLabel imgTitle;
     private javax.swing.JTextField inP;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel khung1;
+    private javax.swing.JLabel khung12;
+    private javax.swing.JLabel khung2;
+    private javax.swing.JLabel khung22;
+    private javax.swing.JLabel khungtxtINP;
+    private javax.swing.JLabel txtCity;
+    private javax.swing.JLabel txtCountry;
+    private javax.swing.JLabel txtDomain;
     private javax.swing.JLabel txtINP;
+    private javax.swing.JLabel txtIP;
+    private javax.swing.JLabel txtISP;
+    private javax.swing.JLabel txtLatitude;
+    private javax.swing.JLabel txtLongitude;
+    private javax.swing.JLabel txtRegion;
+    private javax.swing.JLabel txtTitle;
     // End of variables declaration//GEN-END:variables
 }
