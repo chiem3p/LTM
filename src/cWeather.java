@@ -477,7 +477,7 @@ public class cWeather extends javax.swing.JFrame {
                 loading.setIcon((new ImageIcon("")));
                 if(result.get("success").toString().equals("false"))
                 {
-                    JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này 396");
+                    JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này");
                     return;
                 }
                 result = (JSONObject) result.get("data");
@@ -485,7 +485,7 @@ public class cWeather extends javax.swing.JFrame {
             } catch(Exception ex){
                 System.out.println(ex+"401");
                 loading.setIcon((new ImageIcon("")));
-                JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này 402");
+                JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này");
                 return;
             }
             //System.out.println(result);

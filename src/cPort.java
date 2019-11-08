@@ -36,12 +36,15 @@ public class cPort extends javax.swing.JFrame {
         back = new javax.swing.JButton();
         imgBack = new javax.swing.JLabel();
         txtINP = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         inP = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         inP1 = new javax.swing.JTextField();
         inP2 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -76,11 +79,29 @@ public class cPort extends javax.swing.JFrame {
         imgBack.setBounds(70, 980, 230, 60);
 
         txtINP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        txtINP.setForeground(new java.awt.Color(255, 255, 255));
         txtINP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtINP.setText("Nhập IP: ");
         txtINP.setToolTipText("");
         getContentPane().add(txtINP);
-        txtINP.setBounds(400, 200, 230, 70);
+        txtINP.setBounds(410, 190, 420, 80);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Khoảng: ");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(400, 290, 430, 60);
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/txtInpCity.png"))); // NOI18N
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(400, 280, 440, 80);
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/txtInpCity.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(400, 190, 440, 80);
 
         inP.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         inP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -96,13 +117,21 @@ public class cPort extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inP);
-        inP.setBounds(637, 200, 740, 67);
+        inP.setBounds(830, 197, 760, 70);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/border.png"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(630, 194, 780, 80);
+        jLabel2.setBounds(400, 190, 1210, 80);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("-->");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(1160, 280, 120, 80);
 
         inP1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        inP1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inP1.setBorder(null);
         inP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inP1ActionPerformed(evt);
@@ -114,9 +143,11 @@ public class cPort extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inP1);
-        inP1.setBounds(730, 280, 200, 70);
+        inP1.setBounds(840, 290, 350, 60);
 
-        inP2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        inP2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        inP2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        inP2.setBorder(null);
         inP2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inP2ActionPerformed(evt);
@@ -128,19 +159,11 @@ public class cPort extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inP2);
-        inP2.setBounds(1050, 280, 200, 70);
+        inP2.setBounds(1250, 290, 350, 60);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel1.setText("-->");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(950, 300, 90, 40);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Khoảng: ");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(370, 280, 300, 70);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/border.png"))); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(400, 280, 1210, 80);
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
@@ -248,6 +271,9 @@ public class cPort extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel title;
     private javax.swing.JLabel txtINP;
     // End of variables declaration//GEN-END:variables
