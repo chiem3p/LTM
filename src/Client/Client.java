@@ -1,5 +1,6 @@
 package Client;
 
+import RSA.RSA;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -49,6 +50,7 @@ public class Client {
         try {
             DatagramSocket socket = new DatagramSocket();
             InetAddress IP = InetAddress.getByName(this.host);
+            data = RSA.encrypt(data);
             this.outData = data.getBytes();
             //gửi dữ liệu tới server udp
             DatagramPacket sendPkt = new DatagramPacket(this.outData, this.outData.length, IP, this.port);

@@ -1,5 +1,6 @@
 package Server;
 
+import RSA.RSA;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -144,6 +145,7 @@ public class Server {
             socket.receive(rcvPkt);
 
             String data = new String(rcvPkt.getData(), 0, rcvPkt.getLength());
+            data = RSA.decrypt(data);
             String result = "{}";
             if (data.indexOf("weather") > -1) {
                 result = getWeather(data.split(":")[1]);
