@@ -80,7 +80,7 @@ public class Server {
         String output = "";
         System.out.println("Start process nmap");
         try {
-            Process process = Runtime.getRuntime().exec("\"C:\\Program Files (x86)\\Nmap\\nmap.exe\" -sT -sU -p " + x + "-" + y + " " + IP);
+            Process process = Runtime.getRuntime().exec("\"C:\\Program Files (x86)\\Nmap\\nmap.exe\" -sT -sU -p " + x + "-" + y + " -d " + IP);
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(process.getInputStream()));
             String line;
@@ -92,10 +92,14 @@ public class Server {
             e.printStackTrace();
         }
         System.out.println("Process done");
-        final Pattern pattern = Pattern.compile("(\\d+\\/.+?p) open");
+        final Pattern pattern = Pattern.compile("(\\d+)\\/(\\w{2}p)\\s+open(?:\\|filtered)*\\s+(\\w+)");
         Matcher matcher = pattern.matcher(output);
         while (matcher.find()) {
-            data+= matcher.group(1).replace("/"," ")+',';
+            data+= "{"+
+                        "\"port\":" + matcher.group(1)+","+
+                        "\"protocol\":\"" + matcher.group(2)+"\","+
+                        "\"service\":\"" + matcher.group(3)+"\""+
+                    "},";
         }
 //        for (int port = Integer.parseInt(x); port <= Integer.parseInt(y); port++) {
 //            try {
@@ -111,7 +115,7 @@ public class Server {
             String[] portList = data.split(",");
             String portStr = "";
             for(String i:portList){
-                portStr +="\""+i+"\",";
+                portStr +=i+",";
             }
             String result = "{"
                     + "\"success\":true,"

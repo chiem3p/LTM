@@ -1,5 +1,8 @@
 
 import Client.Client;
+import java.awt.Font;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,7 +22,11 @@ public class cPort extends javax.swing.JFrame {
      * Creates new form cPort
      */
     public cPort() {
+        model.addColumn("Port"); 
+        model.addColumn("Protocol"); 
+        model.addColumn("Service"); 
         initComponents();
+        jTable1.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 24));
     }
 
     /**
@@ -44,6 +51,8 @@ public class cPort extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         inP1 = new javax.swing.JTextField();
         inP2 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
@@ -161,6 +170,16 @@ public class cPort extends javax.swing.JFrame {
         getContentPane().add(inP2);
         inP2.setBounds(1250, 290, 350, 60);
 
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jTable1.setModel(model);
+        jTable1.setAutoscrolls(false);
+        jTable1.setRowHeight(30);
+        jTable1.setRowSelectionAllowed(false);
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(400, 410, 1210, 620);
+
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/border.png"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(400, 280, 1210, 80);
@@ -185,11 +204,7 @@ public class cPort extends javax.swing.JFrame {
 
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            String IP = ((javax.swing.JTextField) evt.getSource()).getText();
-            String start = inP1.getText();
-            String end = inP2.getText();
-            Client cli = new Client("localhost",8000,100000);
-            System.out.println(cli.getPortOpen(IP + ":" + start + ":" + end));
+            this.renderPort();
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_inPKeyPressed
@@ -200,11 +215,7 @@ public class cPort extends javax.swing.JFrame {
 
     private void inP1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inP1KeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            String start = ((javax.swing.JTextField) evt.getSource()).getText();
-            String IP = inP.getText();
-            String end = inP2.getText();
-            Client cli = new Client("localhost",8000,100000);
-            System.out.println(cli.getPortOpen(IP + ":" + start + ":" + end));
+            this.renderPort();
         }
 
         // TODO add your handling code here:
@@ -212,15 +223,33 @@ public class cPort extends javax.swing.JFrame {
 
     private void inP2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inP2KeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            String end = ((javax.swing.JTextField) evt.getSource()).getText();
-            String IP = inP.getText();
-            String start = inP1.getText();
-            Client cli = new Client("localhost",8000,100000);
-            System.out.println(cli.getPortOpen(IP + ":" + start + ":" + end));
+            this.renderPort();
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_inP2KeyPressed
-
+    private void renderPort() {
+        String IP = inP.getText();
+        String start = inP1.getText();
+        String end = inP2.getText();
+        if(Math.abs(Integer.parseInt(start) - Integer.parseInt(end)) > 500)
+        {
+            JOptionPane.showMessageDialog(null, "Giới hạn là 500 port");
+            return;
+        }
+        Client cli = new Client("localhost",8000,100000);
+        JSONObject result = cli.getPortOpen(IP + ":" + start + ":" + end);
+        if(result.get("success").toString().equals("false"))
+        {
+            JOptionPane.showMessageDialog(null, "Không thể quét ip này");
+            return;
+        }
+        JSONArray data = (JSONArray) result.get("data");
+        model.setRowCount(0);
+        for (int i = 0; i < data.size(); i++) {
+            JSONObject ob = (JSONObject) data.get(i);
+            model.addRow(new Object[]{ob.get("port").toString(), ob.get("protocol").toString(), ob.get("service").toString()});
+        }
+    }   
     private void inP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inP2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inP2ActionPerformed
@@ -259,7 +288,7 @@ public class cPort extends javax.swing.JFrame {
             }
         });
     }
-
+    private DefaultTableModel model = new DefaultTableModel(); 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BG;
     private javax.swing.JButton back;
@@ -274,6 +303,8 @@ public class cPort extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel title;
     private javax.swing.JLabel txtINP;
     // End of variables declaration//GEN-END:variables
