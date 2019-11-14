@@ -55,7 +55,7 @@ public class UI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cWeather);
-        cWeather.setBounds(580, 240, 780, 130);
+        cWeather.setBounds(580, 440, 780, 130);
 
         cIP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         cIP.setForeground(new java.awt.Color(255, 255, 255));
@@ -68,7 +68,7 @@ public class UI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cIP);
-        cIP.setBounds(570, 500, 770, 140);
+        cIP.setBounds(570, 660, 770, 140);
 
         cPort.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         cPort.setForeground(new java.awt.Color(255, 255, 255));
@@ -81,21 +81,23 @@ public class UI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cPort);
-        cPort.setBounds(580, 800, 780, 130);
+        cPort.setBounds(580, 900, 780, 130);
 
         Khung1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3.png"))); // NOI18N
         getContentPane().add(Khung1);
-        Khung1.setBounds(560, 230, 810, 150);
+        Khung1.setBounds(560, 430, 810, 150);
 
         khung2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4.png"))); // NOI18N
         getContentPane().add(khung2);
-        khung2.setBounds(570, 490, 840, 160);
+        khung2.setBounds(570, 650, 800, 160);
 
         khung3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/5.png"))); // NOI18N
         getContentPane().add(khung3);
-        khung3.setBounds(570, 790, 820, 140);
+        khung3.setBounds(570, 890, 820, 140);
+
+        Tittle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/menuLogo.png"))); // NOI18N
         getContentPane().add(Tittle);
-        Tittle.setBounds(260, 30, 1600, 170);
+        Tittle.setBounds(270, -70, 1600, 570);
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
