@@ -106,6 +106,7 @@ public class cWeather extends javax.swing.JFrame {
         BGHN1 = new javax.swing.JLabel();
         thisTimeIMG = new javax.swing.JLabel();
         thisTime = new javax.swing.JLabel();
+        BGHN2 = new javax.swing.JLabel();
         BGHN = new javax.swing.JLabel();
         loading = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
@@ -440,6 +441,10 @@ public class cWeather extends javax.swing.JFrame {
         getContentPane().add(thisTime);
         thisTime.setBounds(40, 470, 300, 60);
 
+        BGHN2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(BGHN2);
+        BGHN2.setBounds(20, 420, 430, 560);
+
         BGHN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BGHN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BGweather3.jpg"))); // NOI18N
         getContentPane().add(BGHN);
@@ -472,20 +477,49 @@ public class cWeather extends javax.swing.JFrame {
             String location = ((javax.swing.JTextField) evt.getSource()).getText();
             Client cli = new Client();
             JSONObject result = null;
-            try{
+            try {
                 result = cli.getWeather(location);
                 loading.setIcon((new ImageIcon("")));
-                if(result.get("success").toString().equals("false"))
-                {
-                    JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này");
+                if (result.get("success").toString().equals("false")) {
+                    txtCity.setText("<html> <font color='red'>Không tìm thấy địa danh này</font></html>");
+                    ImageIcon II = new ImageIcon("./src/image/BGweather3.jpg");
+                    ImageIcon III = new ImageIcon("./src/image/giphy1.gif");
+
+                    BGHN.setIcon(II);
+                    String text = "";
+                    tdText1.setText("");
+                    tdText2.setText("");
+                    tdText3.setText("");
+                    tdText4.setText("");
+                    tdText5.setText("");
+                    tdText6.setText("");
+                    tdText7.setText("");
+                    tdText8.setText("");
+                    tdText9.setText("");
+                    tdText10.setText("");
+                    tdText11.setText("");
+                    tdText12.setText("");
+                    tdText13.setText("");
+                    tdText14.setText("");
+                    tdText15.setText("");
+                    tdText16.setText("");
+                    tdText17.setText("");
+                    tdText18.setText("");
+                    tdText19.setText("");
+                    tdText20.setText("");
+                    tdText21.setText("");
+                    thisTime.setText("");
+
+                    //JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này");
                     return;
                 }
                 result = (JSONObject) result.get("data");
-                
-            } catch(Exception ex){
-                System.out.println(ex+"401");
+
+            } catch (Exception ex) {
+                System.out.println(ex + "401");
                 loading.setIcon((new ImageIcon("")));
-                JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này");
+                txtCity.setText("<html> <font color='red'>Không tìm thấy địa danh này</font></html>");
+                // JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này");
                 return;
             }
             //System.out.println(result);
@@ -509,7 +543,7 @@ public class cWeather extends javax.swing.JFrame {
 //                if(icon1<10){
 //                    System.out.println("Kha lam thang nhoc");
 //                }
-            long timeNow = (new Date()).getTime()/1000;
+            long timeNow = (new Date()).getTime() / 1000;
             int max = 10800;
             JSONObject now = null;
             String[] listMain = new String[7];
@@ -519,7 +553,7 @@ public class cWeather extends javax.swing.JFrame {
             for (int i = 0; i < list.size(); i++) {
                 JSONObject ob = (JSONObject) list.get(i);
                 long dt = (long) ob.get("dt") - (long) city.get("timezone");
-                if(Math.abs(timeNow - dt) < max){
+                if (Math.abs(timeNow - dt) < max) {
                     now = (JSONObject) list.get(i);
                     max = (int) Math.abs(timeNow - dt);
                 }
@@ -527,9 +561,9 @@ public class cWeather extends javax.swing.JFrame {
 //                    System.out.println(ob.get("dt_txt"));
                     JSONObject weather = (JSONObject) ((JSONArray) ob.get("weather")).get(0);
                     String main = (String) weather.get("main");
-                    listTime[j] = ob.get("dt_txt").toString().split(" ")[1] + "   " + (int) Math.ceil(Double.parseDouble(((JSONObject)ob.get("main")).get("temp").toString())) + "°C" ;
+                    listTime[j] = ob.get("dt_txt").toString().split(" ")[1] + "   " + (int) Math.ceil(Double.parseDouble(((JSONObject) ob.get("main")).get("temp").toString())) + "°C";
                     listMain[j] = main;
-                    j=j+1;
+                    j = j + 1;
 
                 } else {
                     setIcon(listMain, day);
@@ -542,11 +576,11 @@ public class cWeather extends javax.swing.JFrame {
                     day = day + 1;
                 }
             }
-            thisTime.setText(now.get("dt_txt").toString().split(" ")[1] + "   " + (int) Math.ceil(Double.parseDouble(((JSONObject)now.get("main")).get("temp").toString())) + "°C" );
+            thisTime.setText(now.get("dt_txt").toString().split(" ")[1] + "   " + (int) Math.ceil(Double.parseDouble(((JSONObject) now.get("main")).get("temp").toString())) + "°C");
             JSONObject weather = (JSONObject) ((JSONArray) now.get("weather")).get(0);
             String main = (String) weather.get("main");
-            ImageIcon I1 = new ImageIcon( main.equals("Rain") ? "./src/image/Rain.png": (main.equals("Clouds") ? "./src/image/Cloud.png" : "./src/image/Sun.png" ) );
-            ImageIcon I2 = new ImageIcon( main.equals("Rain") ? "./src/image/BGRain2.jpg": (main.equals("Clouds") ? "./src/image/BGCloud.jpg" : "./src/image/BGClear.jpg" ) );
+            ImageIcon I1 = new ImageIcon(main.equals("Rain") ? "./src/image/Rain.png" : (main.equals("Clouds") ? "./src/image/Cloud.png" : "./src/image/Sun.png"));
+            ImageIcon I2 = new ImageIcon(main.equals("Rain") ? "./src/image/BGRain2.jpg" : (main.equals("Clouds") ? "./src/image/BGCloud.jpg" : "./src/image/BGClear.jpg"));
             thisTimeIMG.setIcon(I1);
             BGHN.setIcon(I2);
         }
@@ -691,6 +725,7 @@ public class cWeather extends javax.swing.JFrame {
             }
         }
     }
+
     public void setIcon(String[] listImage, int day) {
         for (int i = 0; i < listImage.length; i++) {
             try {
@@ -812,6 +847,7 @@ public class cWeather extends javax.swing.JFrame {
     private javax.swing.JLabel BG;
     private javax.swing.JLabel BGHN;
     private javax.swing.JLabel BGHN1;
+    private javax.swing.JLabel BGHN2;
     private javax.swing.JLabel BGHN3;
     private javax.swing.JLabel BGHN4;
     private javax.swing.JButton back;
