@@ -48,7 +48,6 @@ public class UI extends javax.swing.JFrame {
         cWeather.setAutoscrolls(true);
         cWeather.setBorder(null);
         cWeather.setContentAreaFilled(false);
-        cWeather.setRolloverEnabled(false);
         cWeather.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cWeatherActionPerformed(evt);
@@ -95,9 +94,9 @@ public class UI extends javax.swing.JFrame {
         getContentPane().add(khung3);
         khung3.setBounds(570, 890, 820, 140);
 
-        Tittle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/menuLogo.png"))); // NOI18N
+        Tittle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/titled.png"))); // NOI18N
         getContentPane().add(Tittle);
-        Tittle.setBounds(270, -70, 1600, 570);
+        Tittle.setBounds(-50, 40, 1920, 1080);
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);
