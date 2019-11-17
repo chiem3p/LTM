@@ -247,11 +247,11 @@ public class cIP extends javax.swing.JFrame {
         INPisp.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         INPisp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(INPisp);
-        INPisp.setBounds(530, 720, 860, 70);
+        INPisp.setBounds(530, 720, 860, 80);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/B1.png"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(530, 720, 860, 70);
+        jLabel4.setBounds(530, 720, 860, 80);
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/BG.png"))); // NOI18N
         getContentPane().add(BG);

@@ -67,7 +67,7 @@ public class UI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cIP);
-        cIP.setBounds(570, 660, 770, 140);
+        cIP.setBounds(560, 620, 770, 140);
 
         cPort.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         cPort.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,7 +80,7 @@ public class UI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cPort);
-        cPort.setBounds(580, 900, 780, 130);
+        cPort.setBounds(570, 820, 780, 130);
 
         Khung1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3.png"))); // NOI18N
         getContentPane().add(Khung1);
@@ -88,11 +88,11 @@ public class UI extends javax.swing.JFrame {
 
         khung2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4.png"))); // NOI18N
         getContentPane().add(khung2);
-        khung2.setBounds(570, 650, 800, 160);
+        khung2.setBounds(560, 610, 800, 160);
 
         khung3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/5.png"))); // NOI18N
         getContentPane().add(khung3);
-        khung3.setBounds(570, 890, 820, 140);
+        khung3.setBounds(560, 810, 820, 140);
 
         Tittle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/titled.png"))); // NOI18N
         getContentPane().add(Tittle);

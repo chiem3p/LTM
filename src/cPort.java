@@ -90,7 +90,7 @@ public class cPort extends javax.swing.JFrame {
         getContentPane().add(imgBack);
         imgBack.setBounds(70, 960, 230, 60);
 
-        inP.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        inP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         inP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inP.setBorder(null);
         inP.addActionListener(new java.awt.event.ActionListener() {
@@ -183,19 +183,19 @@ public class cPort extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText(" Port");
+        jLabel9.setText("  Cổng");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(280, 380, 460, 60);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText(" Service");
+        jLabel10.setText("  Dịch vụ");
         getContentPane().add(jLabel10);
         jLabel10.setBounds(1210, 380, 460, 60);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText(" Protocol");
+        jLabel11.setText("  Giao thức");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(740, 376, 470, 70);
 
@@ -215,11 +215,11 @@ public class cPort extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(280, 410, 1390, 570);
+        jScrollPane1.setBounds(280, 410, 1390, 560);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/border02.png"))); // NOI18N
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(270, 400, 1410, 590);
+        jLabel7.setBounds(270, 390, 1410, 590);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jPanel1);
