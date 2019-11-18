@@ -1,5 +1,6 @@
 
 import Client.Client;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -277,36 +278,39 @@ public class cIP extends javax.swing.JFrame {
             String ip = ((javax.swing.JTextField) evt.getSource()).getText();
             Client cli = new Client();
             JSONObject IP = cli.getIPLocation(ip);
-            
-            Object longitude = IP.get("longitude");
-            Object latitude = IP.get("latitude");
-            Object address = IP.get("");
-            Object city = IP.get("city_name");
-            Object isp = IP.get("isp");
-            Object domain = IP.get("domain");
-            Object countryname = IP.get("country_name");
-            Object regionname = IP.get("region_name");
-            Object zipcode = IP.get("zip_code");
-            
-            System.out.println(countryname);
-            INPIP.setText(ip);
-            INPCountry.setText(countryname.toString());
-            System.out.println(city);
-            INPCity.setText(city.toString());
-            System.out.println(regionname);
-            INPReg.setText(regionname.toString());
-            System.out.println(zipcode);
-            INPzip.setText(zipcode.toString());
-            System.out.println(domain);
-            INPDomain.setText(domain.toString());
-            System.out.println(latitude);
-            INPLa.setText(latitude.toString());
-            System.out.println(longitude);
-            INPLong.setText(longitude.toString());
-            System.out.println();
-            INPisp.setText(isp.toString());
-            
-            System.out.println(cli.getIPLocation(ip));
+            if(IP.get("success").toString().equals("true")){
+                Object longitude = IP.get("longitude");
+                Object latitude = IP.get("latitude");
+                Object address = IP.get("");
+                Object city = IP.get("city_name");
+                Object isp = IP.get("isp");
+                Object domain = IP.get("domain");
+                Object countryname = IP.get("country_name");
+                Object regionname = IP.get("region_name");
+                Object zipcode = IP.get("zip_code");
+
+                System.out.println(countryname);
+                INPIP.setText(ip);
+                INPCountry.setText(countryname.toString());
+                System.out.println(city);
+                INPCity.setText(city.toString());
+                System.out.println(regionname);
+                INPReg.setText(regionname.toString());
+                System.out.println(zipcode);
+                INPzip.setText(zipcode.toString());
+                System.out.println(domain);
+                INPDomain.setText(domain.toString());
+                System.out.println(latitude);
+                INPLa.setText(latitude.toString());
+                System.out.println(longitude);
+                INPLong.setText(longitude.toString());
+                System.out.println();
+                INPisp.setText(isp.toString());
+
+                System.out.println(cli.getIPLocation(ip));
+            } else{
+                 JOptionPane.showMessageDialog(null, IP.get("error_message").toString());
+            }
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_inPKeyPressed
