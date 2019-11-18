@@ -287,7 +287,7 @@ public class cPort extends javax.swing.JFrame {
             return;
         }
        
-        Client cli = new Client("localhost",8000,100000);
+        Client cli = new Client(8000,100000);
         JSONObject result = cli.getPortOpen(IP + ":" + start + ":" + end);
         if(result.get("success").toString().equals("false"))
         {

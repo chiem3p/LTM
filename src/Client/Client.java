@@ -19,14 +19,14 @@ public class Client {
     public String host;
     public int port;
 
-    public Client(String host, int port,int timeout) {
-        this.host = host;
+    public Client(int port,int timeout) {
+        this.host = "172.20.10.6";
         this.port = port;
         this.timeout = timeout;
     }
 
     public Client() {
-        this.host = "localhost";
+        this.host = "172.20.10.6";
         this.port = 8000;
         this.timeout = 10000;
     }
