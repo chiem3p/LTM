@@ -272,6 +272,10 @@ public class cPort extends javax.swing.JFrame {
         String IP = inP.getText();
         String start = inP1.getText();
         String end = inP2.getText();
+        if(IP.isEmpty() || start.isEmpty() || end.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Không thể bỏ trống");
+            return;
+        }
         if(Math.abs(Integer.parseInt(start) - Integer.parseInt(end)) > 500)
         {
             JOptionPane.showMessageDialog(null, "Giới hạn là 500 port");
