@@ -1,6 +1,7 @@
     
 import Client.Client;
 import java.awt.Font;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -276,11 +277,16 @@ public class cPort extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Không thể bỏ trống");
             return;
         }
-        if(Math.abs(Integer.parseInt(start) - Integer.parseInt(end)) > 500)
-        {
-            JOptionPane.showMessageDialog(null, "Giới hạn là 500 port");
+        try{
+            if (Math.abs(Integer.parseInt(start) - Integer.parseInt(end)) > 500) {
+                JOptionPane.showMessageDialog(null, "Giới hạn là 500 port");
+                return;
+            }
+        } catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Port không thể là chữ");
             return;
         }
+       
         Client cli = new Client("localhost",8000,100000);
         JSONObject result = cli.getPortOpen(IP + ":" + start + ":" + end);
         if(result.get("success").toString().equals("false"))
