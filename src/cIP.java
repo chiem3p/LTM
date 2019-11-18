@@ -1,5 +1,7 @@
 
 import Client.Client;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /*
@@ -276,8 +278,11 @@ public class cIP extends javax.swing.JFrame {
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             String ip = ((javax.swing.JTextField) evt.getSource()).getText();
-            if(ip.contains(":")){
-                JOptionPane.showMessageDialog(null,"IP không được chứa dấu :");
+            String regex = "^\\d+\\.\\d+\\.\\d+\\.\\d+$";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(ip);
+            if(!matcher.find()){
+                JOptionPane.showMessageDialog(null,"IP không hợp lệ");
                 return;
             }
             Client cli = new Client();
