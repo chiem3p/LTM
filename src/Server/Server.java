@@ -125,7 +125,7 @@ public class Server {
             System.out.println(result);
             return result;
         }
-        return "{\"success\":true,\"data\":[]}";
+        return "{\"success\":false,\"error_message\":\"Không có port nào đang mở hoặc không thể kết nối đến host này\"}";
     }
 
     public static void main(String args[]) throws Exception {
