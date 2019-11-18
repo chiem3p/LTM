@@ -66,7 +66,7 @@ public class Server {
             if(content.contains("Invalid IP address")){
                 throw new Exception("Invalid IP adress");
             }
-            return content;
+            return "{\"success\":true,\"data\":"+content+"}";
         } catch (Exception ex) {
             System.out.println(ex);
             return "{\"success\":false,\"error_message\":\""+ex+"\"}";
