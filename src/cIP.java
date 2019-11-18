@@ -276,6 +276,10 @@ public class cIP extends javax.swing.JFrame {
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             String ip = ((javax.swing.JTextField) evt.getSource()).getText();
+            if(ip.contains(":")){
+                JOptionPane.showMessageDialog(null,"IP không được chứa dấu :");
+                return;
+            }
             Client cli = new Client();
             JSONObject IP = cli.getIPLocation(ip);
             if(IP.get("success").toString().equals("true")){
