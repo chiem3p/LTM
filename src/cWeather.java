@@ -483,7 +483,7 @@ public class cWeather extends javax.swing.JFrame {
                 if (result.get("success").toString().equals("false")) {
                     txtCity.setText("<html> <font color='red'>Không tìm thấy địa danh này</font></html>");
                     ImageIcon II = new ImageIcon("./src/image/BGweather3.jpg");
-                    ImageIcon III = new ImageIcon("./src/image/giphy1.gif");
+                    ImageIcon III = new ImageIcon("./src/image/error.png");
 
                     BGHN.setIcon(II);
                     String text = "";
@@ -509,7 +509,28 @@ public class cWeather extends javax.swing.JFrame {
                     tdText20.setText("");
                     tdText21.setText("");
                     thisTime.setText("");
-
+                    today1.setIcon(III);
+                    today2.setIcon(III);
+                    today3.setIcon(III);
+                    today4.setIcon(III);
+                    today5.setIcon(III);
+                    today6.setIcon(III);
+                    today7.setIcon(III);
+                    nextday1.setIcon(III);
+                    nextday2.setIcon(III);
+                    nextday3.setIcon(III);
+                    nextday4.setIcon(III);
+                    nextday5.setIcon(III);
+                    nextday6.setIcon(III);
+                    nextday7.setIcon(III);
+                    nextend1.setIcon(III);
+                    nextend2.setIcon(III);
+                    nextend3.setIcon(III);
+                    nextend4.setIcon(III);
+                    nextend5.setIcon(III);
+                    nextend6.setIcon(III);
+                    nextend7.setIcon(III);
+                    thisTimeIMG.setIcon(III);
                     //JOptionPane.showMessageDialog(null, "Không tìm thấy địa danh này");
                     return;
                 }

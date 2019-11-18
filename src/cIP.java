@@ -277,6 +277,7 @@ public class cIP extends javax.swing.JFrame {
             String ip = ((javax.swing.JTextField) evt.getSource()).getText();
             Client cli = new Client();
             JSONObject IP = cli.getIPLocation(ip);
+            
             Object longitude = IP.get("longitude");
             Object latitude = IP.get("latitude");
             Object address = IP.get("");
