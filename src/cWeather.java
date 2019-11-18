@@ -475,6 +475,10 @@ public class cWeather extends javax.swing.JFrame {
             ImageIcon loadingIcon = new ImageIcon("./src/image/loading.gif");
             loading.setIcon(loadingIcon);
             String location = ((javax.swing.JTextField) evt.getSource()).getText();
+            if(location.contains(":")){
+                JOptionPane.showMessageDialog(null,"Tỉnh/thành phố không được chứa dấu :");
+                return;
+            }
             Client cli = new Client();
             JSONObject result = null;
             try {

@@ -277,6 +277,10 @@ public class cPort extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Không thể bỏ trống");
             return;
         }
+        if(IP.contains(":") || start.contains(":") || end.contains(":")){
+            JOptionPane.showMessageDialog(null,"Không được chứa dấu :");
+            return;
+        }
         try{
             if (Math.abs(Integer.parseInt(start) - Integer.parseInt(end)) > 500) {
                 JOptionPane.showMessageDialog(null, "Giới hạn là 500 port");
