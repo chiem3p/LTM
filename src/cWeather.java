@@ -474,9 +474,61 @@ public class cWeather extends javax.swing.JFrame {
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             ImageIcon loadingIcon = new ImageIcon("./src/image/loading.gif");
             loading.setIcon(loadingIcon);
-            String location = ((javax.swing.JTextField) evt.getSource()).getText();
-            if(location.contains(":")){
-                JOptionPane.showMessageDialog(null,"Tỉnh/thành phố không được chứa dấu :");
+            String location = ((javax.swing.JTextField) evt.getSource()).getText().trim();
+            if (location.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Không thể bỏ trống");
+                return;
+            }
+            if (location.contains(":")) {
+                //JOptionPane.showMessageDialog(null,"Tỉnh/thành phố không được chứa dấu :");
+                txtCity.setText("<html> <font color='red'>Tỉnh, thành phố không hợp lệ</font></html>");
+                ImageIcon II = new ImageIcon("./src/image/BGweather3.jpg");
+                ImageIcon III = new ImageIcon("./src/image/error.png");
+                BGHN.setIcon(II);
+                tdText1.setText("");
+                tdText2.setText("");
+                tdText3.setText("");
+                tdText4.setText("");
+                tdText5.setText("");
+                tdText6.setText("");
+                tdText7.setText("");
+                tdText8.setText("");
+                tdText9.setText("");
+                tdText10.setText("");
+                tdText11.setText("");
+                tdText12.setText("");
+                tdText13.setText("");
+                tdText14.setText("");
+                tdText15.setText("");
+                tdText16.setText("");
+                tdText17.setText("");
+                tdText18.setText("");
+                tdText19.setText("");
+                tdText20.setText("");
+                tdText21.setText("");
+                thisTime.setText("");
+                today1.setIcon(III);
+                today2.setIcon(III);
+                today3.setIcon(III);
+                today4.setIcon(III);
+                today5.setIcon(III);
+                today6.setIcon(III);
+                today7.setIcon(III);
+                nextday1.setIcon(III);
+                nextday2.setIcon(III);
+                nextday3.setIcon(III);
+                nextday4.setIcon(III);
+                nextday5.setIcon(III);
+                nextday6.setIcon(III);
+                nextday7.setIcon(III);
+                nextend1.setIcon(III);
+                nextend2.setIcon(III);
+                nextend3.setIcon(III);
+                nextend4.setIcon(III);
+                nextend5.setIcon(III);
+                nextend6.setIcon(III);
+                nextend7.setIcon(III);
+                thisTimeIMG.setIcon(III);
                 return;
             }
             Client cli = new Client();

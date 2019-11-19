@@ -1,4 +1,4 @@
-    
+
 import Client.Client;
 import java.awt.Font;
 import java.awt.HeadlessException;
@@ -23,9 +23,9 @@ public class cPort extends javax.swing.JFrame {
      * Creates new form cPort
      */
     public cPort() {
-        model.addColumn("Port"); 
-        model.addColumn("Protocol"); 
-        model.addColumn("Service"); 
+        model.addColumn("Port");
+        model.addColumn("Protocol");
+        model.addColumn("Service");
         initComponents();
         jTable1.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 24));
     }
@@ -270,31 +270,39 @@ public class cPort extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inP2KeyPressed
     private void renderPort() {
-        String IP = inP.getText();
-        String start = inP1.getText();
-        String end = inP2.getText();
-        if(IP.isEmpty() || start.isEmpty() || end.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Không thể bỏ trống");
+        String IP = inP.getText().trim();
+        String start = inP1.getText().trim();
+        String end = inP2.getText().trim();
+        if (IP.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "IP không thể bỏ trống");
             return;
         }
-        if(IP.contains(":") || start.contains(":") || end.contains(":")){
-            JOptionPane.showMessageDialog(null,"Không được chứa dấu :");
+        if (start.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Số bắt đầu không thể bỏ trống");
             return;
         }
-        try{
+        if (end.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Số kết thúc không thể bỏ trống");
+            return;
+        }
+
+        if (IP.contains(":") || start.contains(":") || end.contains(":")) {
+            JOptionPane.showMessageDialog(null, "Không được chứa dấu :");
+            return;
+        }
+        try {
             if (Math.abs(Integer.parseInt(start) - Integer.parseInt(end)) > 500) {
                 JOptionPane.showMessageDialog(null, "Giới hạn là 500 port");
                 return;
             }
-        } catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Port không thể là chữ");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Port không thể là chuỗi");
             return;
         }
-       
-        Client cli = new Client(8000,100000);
+
+        Client cli = new Client(8000, 100000);
         JSONObject result = cli.getPortOpen(IP + ":" + start + ":" + end);
-        if(result.get("success").toString().equals("false"))
-        {
+        if (result.get("success").toString().equals("false")) {
             JOptionPane.showMessageDialog(null, "Không thể quét ip này");
             return;
         }
@@ -304,7 +312,7 @@ public class cPort extends javax.swing.JFrame {
             JSONObject ob = (JSONObject) data.get(i);
             model.addRow(new Object[]{ob.get("port").toString(), ob.get("protocol").toString(), ob.get("service").toString()});
         }
-    }   
+    }
     private void inP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inP2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inP2ActionPerformed
@@ -343,7 +351,7 @@ public class cPort extends javax.swing.JFrame {
             }
         });
     }
-    private DefaultTableModel model = new DefaultTableModel(); 
+    private DefaultTableModel model = new DefaultTableModel();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BG;
     private javax.swing.JButton back;

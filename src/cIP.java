@@ -1,8 +1,13 @@
 
 import Client.Client;
+import java.awt.Color;
+import java.awt.Font;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.FontUIResource;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -277,17 +282,34 @@ public class cIP extends javax.swing.JFrame {
 
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            String ip = ((javax.swing.JTextField) evt.getSource()).getText();
+            String ip = ((javax.swing.JTextField) evt.getSource()).getText().trim();
             String regex = "^\\d+\\.\\d+\\.\\d+\\.\\d+$";
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(ip);
-            if(!matcher.find()){
-                JOptionPane.showMessageDialog(null,"IP không hợp lệ");
+            if (!matcher.find()) {
+                final ImageIcon icon = new ImageIcon("./src/image/giphy.gif");
+                UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Tahoma", Font.BOLD, 30)));
+                UIManager.put("Panel.background", Color.white);
+                UIManager.put("OptionPane.background", Color.white);
+//                UIManager.put("", )
+                JOptionPane.showMessageDialog(null, "<html><font color='red'>IP không hợp lệ</font></html>", "Lỗi á nha", JOptionPane.INFORMATION_MESSAGE, icon);
+                //JOptionPane.showMessageDialog(null,"IP không hợp lệ");
+                inP.setText(null);
+                INPCity.setText(null);
+                INPCountry.setText(null);
+                INPDomain.setText(null);
+                INPLa.setText(null);
+                INPLong.setText(null);
+                INPReg.setText(null);
+                INPisp.setText(null);
+                INPzip.setText(null);
+                INPIP.setText(null);
+
                 return;
             }
             Client cli = new Client();
             JSONObject IP = cli.getIPLocation(ip);
-            if(IP.get("success").toString().equals("true")){
+            if (IP.get("success").toString().equals("true")) {
                 IP = (JSONObject) IP.get("data");
                 Object longitude = IP.get("longitude");
                 Object latitude = IP.get("latitude");
@@ -318,8 +340,8 @@ public class cIP extends javax.swing.JFrame {
                 INPisp.setText(isp.toString());
 
                 System.out.println(cli.getIPLocation(ip));
-            } else{
-                 JOptionPane.showMessageDialog(null, IP.get("error_message").toString());
+            } else {
+                JOptionPane.showMessageDialog(null, IP.get("error_message").toString());
             }
         }
         // TODO add your handling code here:

@@ -20,13 +20,13 @@ public class Client {
     public int port;
 
     public Client(int port,int timeout) {
-        this.host = "172.20.10.6";
+        this.host = "localhost";
         this.port = port;
         this.timeout = timeout;
     }
 
     public Client() {
-        this.host = "172.20.10.6";
+        this.host = "localhost";
         this.port = 8000;
         this.timeout = 10000;
     }
