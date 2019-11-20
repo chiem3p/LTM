@@ -110,10 +110,10 @@ public class cPort extends javax.swing.JFrame {
         txtINP.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         txtINP.setForeground(new java.awt.Color(255, 255, 255));
         txtINP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtINP.setText("Nhập IP: ");
+        txtINP.setText("Nhập IP/ Domain: ");
         txtINP.setToolTipText("");
         getContentPane().add(txtINP);
-        txtINP.setBounds(380, 170, 400, 80);
+        txtINP.setBounds(380, 170, 420, 80);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
