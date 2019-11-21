@@ -21,24 +21,10 @@ public class RSA {
 		return kf.generatePrivate(spec);
 	}
 
-	public static PublicKey getPublicKey() throws Exception {
-		byte[] keyBytes = Files.readAllBytes(new File(PUBLIC_KEY_FILE).toPath());
-		X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
-		KeyFactory kf = KeyFactory.getInstance("RSA");
-		return kf.generatePublic(spec);
+	public static PublicKey getPublicKey(String keyBytes) throws Exception {
+            byte[] byteKey = Base64.getDecoder().decode(keyBytes);
+            X509EncodedKeySpec X509publicKey = new X509EncodedKeySpec(byteKey);
+            KeyFactory kf = KeyFactory.getInstance("RSA");
+            return kf.generatePublic(X509publicKey);
 	}
-	public static String encrypt(String str) throws Exception{
-            PublicKey publicKey = getPublicKey();
-            Cipher cipher = Cipher.getInstance("RSA");
-            cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-            byte[] byteEncrypted = cipher.doFinal(str.getBytes());
-            return  Base64.getEncoder().encodeToString(byteEncrypted);
-        }
-        public static String decrypt(String str) throws Exception{
-            PrivateKey privateKey = getPrivateKey();
-            Cipher cipher = Cipher.getInstance("RSA");
-            cipher.init(Cipher.DECRYPT_MODE, privateKey);
-            byte[] byteDecrypted = cipher.doFinal(Base64.getDecoder().decode(str));
-            return new String(byteDecrypted);
-        }
 }

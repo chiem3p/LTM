@@ -1,9 +1,11 @@
 package Client;
 
 import RSA.RSA;
+import RSA.RSA_Key;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.JSONObject;
@@ -14,7 +16,7 @@ import org.json.simple.parser.JSONParser;
 public class Client {
 
     public byte[] inData = new byte[102400];
-    public byte[] outData = new byte[1024];
+    public byte[] outData = new byte[102400];
     public int timeout;
     public String host;
     public int port;
@@ -50,8 +52,14 @@ public class Client {
         try {
             DatagramSocket socket = new DatagramSocket();
             InetAddress IP = InetAddress.getByName(this.host);
-            data = RSA.encrypt(data);
-            this.outData = data.getBytes();
+            String publicKey = Base64.getEncoder().encodeToString(RSA_Key.publicKey.getEncoded());
+            data = RSA_Key.encrypt(data,RSA_Key.serverPublicKey);
+            JSONObject requestData = new JSONObject();
+            requestData.put("data",data);
+            requestData.put("public_key",publicKey);
+            byte[] test = requestData.toString().getBytes();
+            System.out.println(test.length);
+            this.outData = requestData.toString().getBytes();
             //gửi dữ liệu tới server udp
             DatagramPacket sendPkt = new DatagramPacket(this.outData, this.outData.length, IP, this.port);
 
@@ -61,6 +69,7 @@ public class Client {
             DatagramPacket recievePkt = new DatagramPacket(this.inData, this.inData.length);
             socket.receive(recievePkt);
             String strReceived = new String(recievePkt.getData(), 0, recievePkt.getLength());
+            strReceived = RSA_Key.decrypt(strReceived, RSA_Key.privateKey);
             JSONParser parser = new JSONParser();
             JSONObject result = (JSONObject) parser.parse(strReceived);
             return result;
