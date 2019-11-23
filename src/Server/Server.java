@@ -1,20 +1,27 @@
 package Server;
 
 import RSA.RSA;
-import RSA.RSA_Key;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.net.URL;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
+import org.json.simple.parser.ParseException;
 import org.json.simple.parser.JSONParser;
 import java.nio.file.*;
-import java.security.PublicKey;
+import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Scanner;
 public class Server {
 
     public static String getWeather(String location) {
@@ -131,7 +138,7 @@ public class Server {
         System.out.println("server is running");
 
         //tạo chuỗi byte
-        byte[] inServer = new byte[102400];
+        byte[] inServer = new byte[1024];
 
         //tạo packet nhận dữ liệu
         DatagramPacket rcvPkt = new DatagramPacket(inServer, inServer.length);
@@ -141,9 +148,7 @@ public class Server {
             socket.receive(rcvPkt);
 
             String data = new String(rcvPkt.getData(), 0, rcvPkt.getLength());
-            JSONParser parser = new JSONParser();
-            JSONObject request = (JSONObject) parser.parse(data);
-            data = RSA_Key.decrypt(request.get("data").toString(),RSA.getPrivateKey());
+            data = RSA.decrypt(data);
             String result = "{}";
             if (data.indexOf("weather") > -1) {
                 result = getWeather(data.split(":")[1]);
@@ -154,9 +159,7 @@ public class Server {
             if (data.indexOf("port") > -1) {
                 result = getPortOpen(data.split(":")[1], data.split(":")[2], data.split(":")[3]);
             }
-            PublicKey publicKey = RSA.getPublicKey(request.get("public_key").toString());
-            result = RSA_Key.encrypt(result, publicKey);
-            JSONObject response = new JSONObject();
+
             //gửi dữ liệu lại cho client
             byte[] outServer = new byte[1024];
             outServer = result.getBytes();
