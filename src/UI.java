@@ -1,3 +1,6 @@
+
+import RSA.RSA_Key;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -158,6 +161,7 @@ public class UI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                RSA_Key.GenerateKeys();
                 new UI().setVisible(true);
             }
         });

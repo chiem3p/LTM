@@ -1,9 +1,12 @@
 package Client;
 
+import RSA.AES;
 import RSA.RSA;
+import RSA.RSA_Key;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.JSONObject;
@@ -50,8 +53,14 @@ public class Client {
         try {
             DatagramSocket socket = new DatagramSocket();
             InetAddress IP = InetAddress.getByName(this.host);
-            data = RSA.encrypt(data);
-            this.outData = data.getBytes();
+            JSONObject request = new JSONObject();
+            String secretKey = "this_is_secret_key";
+            data = AES.encrypt(data, secretKey);
+            String secretKeyEncrypted = RSA.encrypt(secretKey);
+            request.put("data", data);
+            request.put("public_key", Base64.getEncoder().encodeToString(RSA_Key.publicKey.getEncoded()));
+            request.put("secret_key", secretKeyEncrypted);
+            this.outData = request.toString().getBytes();
             //gửi dữ liệu tới server udp
             DatagramPacket sendPkt = new DatagramPacket(this.outData, this.outData.length, IP, this.port);
 
@@ -62,7 +71,10 @@ public class Client {
             socket.receive(recievePkt);
             String strReceived = new String(recievePkt.getData(), 0, recievePkt.getLength());
             JSONParser parser = new JSONParser();
-            JSONObject result = (JSONObject) parser.parse(strReceived);
+            JSONObject response = (JSONObject) parser.parse(strReceived);
+            String res = AES.decrypt(response.get("data").toString(), secretKey);
+            System.out.println(res);
+            JSONObject result = (JSONObject) parser.parse(AES.decrypt(response.get("data").toString(), secretKey));
             return result;
         } catch (Exception e) {
             System.out.println(e);

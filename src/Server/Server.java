@@ -1,6 +1,8 @@
 package Server;
 
+import RSA.AES;
 import RSA.RSA;
+import RSA.RSA_Key;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -148,7 +150,12 @@ public class Server {
             socket.receive(rcvPkt);
 
             String data = new String(rcvPkt.getData(), 0, rcvPkt.getLength());
-            data = RSA.decrypt(data);
+            JSONParser parser = new JSONParser();
+            JSONObject request = (JSONObject) parser.parse(data);
+            String key = request.get("secret_key").toString();
+            key = RSA.decrypt(key);
+            data = AES.decrypt(request.get("data").toString(), key);
+            
             String result = "{}";
             if (data.indexOf("weather") > -1) {
                 result = getWeather(data.split(":")[1]);
@@ -159,10 +166,12 @@ public class Server {
             if (data.indexOf("port") > -1) {
                 result = getPortOpen(data.split(":")[1], data.split(":")[2], data.split(":")[3]);
             }
-
+            JSONObject response = new JSONObject();
+            result = AES.encrypt(result, key);
+            response.put("data",result);
             //gửi dữ liệu lại cho client
             byte[] outServer = new byte[1024];
-            outServer = result.getBytes();
+            outServer = response.toString().getBytes();
             DatagramPacket sndPkt = new DatagramPacket(outServer, outServer.length, rcvPkt.getAddress(), rcvPkt.getPort());
 
             socket.send(sndPkt);
