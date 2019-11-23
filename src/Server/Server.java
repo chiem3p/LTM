@@ -66,7 +66,7 @@ public class Server {
                 }
             }
             if(content.contains("Invalid IP address")){
-                throw new Exception("Invalid IP adress");
+                return "{\"success\":false,\"error_message\":\""+"Không thể kiểm tra vị trí IP này"+"\"}";
             }
             return "{\"success\":true,\"data\":"+content+"}";
         } catch (Exception ex) {
@@ -86,7 +86,7 @@ public class Server {
         String output = "";
         System.out.println("Start process nmap");
         try {
-            Process process = Runtime.getRuntime().exec("\"C:\\Program Files (x86)\\Nmap\\nmap.exe\" -sT -sU -p " + x + "-" + y + " -d " + IP);
+            Process process = Runtime.getRuntime().exec("\"C:\\Program Files (x86)\\Nmap\\nmap.exe\" -sT -p " + x + "-" + y + " -d " + IP);
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(process.getInputStream()));
             String line;
@@ -183,8 +183,8 @@ public class Server {
         text  = Server.toUnicodeToHop(text);
         String[] chars = {"a", "A", "e", "E", "o", "O", "u", "U", "i", "I", "d", "D", "y", "Y"};
         String[][] uni = new String[14][21];
-        uni[0]  = new String[] {"á", "á", "à", "ạ", "ạ", "ả", "ả", "ã", "â", "ấ", "ầ", "ậ", "ẩ", "ẫ", "ă", "ắ", "ắ", "ằ", "ặ", "ẳ", "� �"};
-        uni[1]  = new String[] {"Á", "À", "Ạ", "Ả", "Ã", "Â", "Ấ", "Ầ", "Ậ", "Ẩ", "Ẫ", "Ă", "Ắ", "Ằ", "Ặ", "Ẳ", "� �"};
+        uni[0]  = new String[] {"á", "á", "à", "ạ", "ạ", "ả", "ả", "ã", "â", "ấ", "ầ", "ậ", "ẩ", "ẫ", "ă", "ắ", "ắ", "ằ", "ặ", "ẳ", "ẵ", "� �"};
+        uni[1]  = new String[] {"Á", "À", "Ạ", "Ả", "Ã", "Â", "Ấ", "Ầ", "Ậ", "Ẩ", "Ẫ", "Ă", "Ắ", "Ằ", "Ặ", "Ẳ", "Ẵ", "� �"};
         uni[2]  = new String[] {"é", "è", "ẹ", "ẹ", "ệ", "ẻ", "ẽ", "ê", "ế", "ế", "ề", "ệ", "ể", "ễ"};
         uni[3]  = new String[] {"É", "È", "Ẹ", "Ẻ", "Ẽ", "Ê", "Ế", "Ề", "Ệ", "Ể", "Ễ"};
         uni[4]  = new String[] {"ó", "ò", "ò", "ọ", "ỏ", "õ", "ô", "ố", "ồ", "ồ", "ộ", "ổ", "ỗ", "ơ", "ớ", "ờ", "ợ", "ở", "ỡ", "� �"};
