@@ -305,7 +305,8 @@ public class cPort extends javax.swing.JFrame {
         if (result.get("success").toString().equals("false")) {
             if(result.get("error_message") != null)  
                 JOptionPane.showMessageDialog(null, result.get("error_message").toString());
-            JOptionPane.showMessageDialog(null, "Không thể quét ip này");
+            else
+                JOptionPane.showMessageDialog(null, "Không thể quét ip này");
             return;
         }
         JSONArray data = (JSONArray) result.get("data");
