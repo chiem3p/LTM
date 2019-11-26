@@ -303,6 +303,8 @@ public class cPort extends javax.swing.JFrame {
         Client cli = new Client(8000, 100000);
         JSONObject result = cli.getPortOpen(IP + ":" + start + ":" + end);
         if (result.get("success").toString().equals("false")) {
+            if(result.get("error_message") != null)  
+                JOptionPane.showMessageDialog(null, result.get("error_message").toString());
             JOptionPane.showMessageDialog(null, "Không thể quét ip này");
             return;
         }
