@@ -283,6 +283,10 @@ public class cIP extends javax.swing.JFrame {
     private void inPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inPKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             String ip = ((javax.swing.JTextField) evt.getSource()).getText().trim();
+            if (ip.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Không thể bỏ trống");
+                return;
+            }
             String regex = "^\\d+\\.\\d+\\.\\d+\\.\\d+$";
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(ip);
