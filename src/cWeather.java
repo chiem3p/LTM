@@ -18,6 +18,8 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -479,7 +481,10 @@ public class cWeather extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Không thể bỏ trống");
                 return;
             }
-            if (location.contains(":")) {
+            String regex = "\\W+";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(location);
+            if (matcher.find()) {
                 //JOptionPane.showMessageDialog(null,"Tỉnh/thành phố không được chứa dấu :");
                 txtCity.setText("<html> <font color='red'>Tỉnh, thành phố không hợp lệ</font></html>");
                 ImageIcon II = new ImageIcon("./src/image/BGweather3.jpg");
