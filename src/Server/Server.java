@@ -58,6 +58,7 @@ public class Server {
 
     public static String getIPLocation(String IP) {
         try {
+            System.out.println("https://api.ip2location.com/v2/?key=KNGRKJLPGS&package=WS12&ip=" + IP);
             URL url = new URL("https://api.ip2location.com/v2/?key=KNGRKJLPGS&package=WS12&ip=" + IP);
             String content = "";
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
@@ -161,7 +162,8 @@ public class Server {
                 result = getWeather(data.split(":")[1]);
             }
             if (data.indexOf("ip") > -1) {
-                result = getIPLocation(data.split(":")[1]);
+                String ip = data.substring(3);
+                result = getIPLocation(ip);
             }
             if (data.indexOf("port") > -1) {
                 result = getPortOpen(data.split(":")[1], data.split(":")[2], data.split(":")[3]);
