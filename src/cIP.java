@@ -292,10 +292,10 @@ public class cIP extends javax.swing.JFrame {
             Matcher matcher = pattern.matcher(ip);
             if (!matcher.find()) {
                 final ImageIcon icon = new ImageIcon("./src/image/giphy.gif");
-                UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Tahoma", Font.BOLD, 30)));
-                UIManager.put("Panel.background", Color.white);
-                UIManager.put("OptionPane.background", Color.white);
-//                UIManager.put("", )
+//                UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Tahoma", Font.BOLD, 30)));
+//                UIManager.put("Panel.background", Color.white);
+//                UIManager.put("OptionPane.background", Color.white);
+////              UIManager.put("", )
                 JOptionPane.showMessageDialog(null, "<html><font color='red'>IP không hợp lệ</font></html>", "Lỗi á nha", JOptionPane.INFORMATION_MESSAGE, icon);
                 //JOptionPane.showMessageDialog(null,"IP không hợp lệ");
                 inP.setText(null);

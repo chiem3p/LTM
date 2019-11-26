@@ -181,7 +181,7 @@ public class cWeather extends javax.swing.JFrame {
         txtCity.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         txtCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(txtCity);
-        txtCity.setBounds(740, 260, 770, 90);
+        txtCity.setBounds(730, 260, 770, 90);
 
         txtINP1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         txtINP1.setForeground(new java.awt.Color(255, 255, 255));
