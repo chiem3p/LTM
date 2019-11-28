@@ -23,13 +23,13 @@ public class Client {
     public int port;
 
     public Client(int port,int timeout) {
-        this.host = "localhost";
+        this.host = "172.20.10.14";
         this.port = port;
         this.timeout = timeout;
     }
 
     public Client() {
-        this.host = "localhost";
+        this.host = "172.20.10.14";
         this.port = 8000;
         this.timeout = 10000;
     }
@@ -73,7 +73,6 @@ public class Client {
             JSONParser parser = new JSONParser();
             JSONObject response = (JSONObject) parser.parse(strReceived);
             String res = AES.decrypt(response.get("data").toString(), secretKey);
-            System.out.println(res);
             JSONObject result = (JSONObject) parser.parse(AES.decrypt(response.get("data").toString(), secretKey));
             return result;
         } catch (Exception e) {
