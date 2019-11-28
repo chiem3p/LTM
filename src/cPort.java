@@ -297,16 +297,29 @@ public class cPort extends javax.swing.JFrame {
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Port không thể là chuỗi");
+            inP.setText("");
+            inP1.setText("");
+            inP2.setText("");
+            model.setRowCount(0);
             return;
         }
 
         Client cli = new Client(8000, 100000);
         JSONObject result = cli.getPortOpen(IP + ":" + start + ":" + end);
         if (result.get("success").toString().equals("false")) {
-            if(result.get("error_message") != null)  
+            if (result.get("error_message") != null) {
                 JOptionPane.showMessageDialog(null, result.get("error_message").toString());
-            else
-                JOptionPane.showMessageDialog(null, "Không thể quét ip này");
+                inP.setText("");
+                inP1.setText("");
+                inP2.setText("");
+                model.setRowCount(0);
+            } else {
+                JOptionPane.showMessageDialog(null, "Không thể quét ip hay port này ");
+            }
+            inP.setText("");
+            inP1.setText("");
+            inP2.setText("");
+            model.setRowCount(0);
             return;
         }
         JSONArray data = (JSONArray) result.get("data");

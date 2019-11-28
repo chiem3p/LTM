@@ -486,7 +486,7 @@ public class cWeather extends javax.swing.JFrame {
             Matcher matcher = pattern.matcher(location);
             if (matcher.find()) {
                 //JOptionPane.showMessageDialog(null,"Tỉnh/thành phố không được chứa dấu :");
-                txtCity.setText("<html> <font color='red'>Tỉnh, thành phố không hợp lệ</font></html>");
+                txtCity.setText("<html> <font color='red'>Không tìm thấy địa danh này</font></html>");
                 ImageIcon II = new ImageIcon("./src/image/BGweather3.jpg");
                 ImageIcon III = new ImageIcon("./src/image/error.png");
                 BGHN.setIcon(II);
