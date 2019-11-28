@@ -481,7 +481,7 @@ public class cWeather extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Không thể bỏ trống");
                 return;
             }
-            String regex = "\\W+";
+            String regex = ":";
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(location);
             if (matcher.find()) {
