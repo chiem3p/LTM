@@ -79,10 +79,10 @@ public class Server {
     public static String getPortOpen(String IP, String x, String y) {
         String data = "";
         if (x.isEmpty() || y.isEmpty()) {
-            return "{\"success\":false,\"error_message\":\"start port or end port is missing\"}";
+            return "{\"success\":false,\"error_message\":\"Không thể để trống port\"}";
         }
         if (Integer.parseInt(x) > Integer.parseInt(y)) {
-            return "{\"success\":false,\"error_message\":\"start port is greater than end port\"}";
+            return "{\"success\":false,\"error_message\":\"Port bắt đầu không được bé hơn port kết thúc\"}";
         }
         String output = "";
         System.out.println("Start process nmap");
